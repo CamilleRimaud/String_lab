@@ -2,12 +2,26 @@
 #include <iostream>
 #include <cstdlib>
 
+void display(const string str);
 
 
 int main(){
   //test default constructor
-  String str;
+  string str;
   std::cout<<*str.string_ptr_<<std::endl;
+  display(str);
+  //test constructor from c-string
+  char cstr[10] = "Bonjour"; // a revoir : cstring char* et end by /0
+  string str_bis(cstr);
+  display(cstr);
+  display(str_bis);
+  //test length accessor
+  std::cout<<str.length()<<std::endl;
+  //test maximum size accessor
+  std::cout<<str.max_size()<<std::endl;
+  //test copy constructor
+  string copy_str(str);
+  std::cout<<*copy_str.string_ptr_<<std::endl;
 
 
 }

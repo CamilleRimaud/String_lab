@@ -1,10 +1,17 @@
 #ifndef STRING_H
 #define STRING_H
 
-class String{
+class string{
   public:
-    String();
-    ~String();
+    string();
+    ~string();
+    string();
+    string(const string &str);
+    string(const char* cstring);
+
+    int length();
+    int max_size();
+
 
     char* string_ptr_;
     int size_;
