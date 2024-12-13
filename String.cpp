@@ -19,10 +19,7 @@ String::String(){
   string_ptr_[size_] = '\0';
 }
 
-//copy constructor
-String::String(const String &str){
-  size_ = str.size_;
-  capacity_ = str.capacity_;
-  string_ptr_ = new char [size_+1];
-  *string_ptr_ = *str.string_ptr_;
+
+String::~String(){
+  delete[] string_ptr_;
 }

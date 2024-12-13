@@ -4,12 +4,7 @@
 class String{
   public:
     String();
-    String(const String &str);
-    String(const char* cstring);
-
-    int length();
-    int max_size();
-
+    ~String();
 
     char* string_ptr_;
     int size_;
