@@ -1,11 +1,11 @@
 #ifndef STRING_H
 #define STRING_H
 
-class String{
+class string{
   public:
-    String();
-    String(const String &str);
-    String(const char* cstring);
+    string();
+    string(const String &str);
+    string(const char* cstring);
 
     int length();
     int max_size();
