@@ -19,9 +19,11 @@ string::string(){
   string_ptr_[size_] = '\0';
 }
 
-
+//destructor
 string::~string(){
   delete[] string_ptr_;
+}
+
 //copy constructor
 string::string(const String &str){
   size_ = str.size_;
