@@ -6,6 +6,8 @@ class String{
     String();
     String(const char* cstring);
 
+    int length();
+
 
     char* string_ptr_;
     int size_;

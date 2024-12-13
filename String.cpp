@@ -29,3 +29,8 @@ String::String(const char* cstring){
   }
   this->string_ptr_[size_] = '\0';
 }
+
+// length accessor
+int String::length(){
+  return size_;
+}

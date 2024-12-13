@@ -15,6 +15,8 @@ int main(){
   String str_bis(cstr);
   display(cstr);
   display(str_bis);
+  //test length accessor
+  std::cout<<str.length()<<std::endl;
 
 
 }
