@@ -34,3 +34,8 @@ String::String(const char* cstring){
 int String::length(){
   return size_;
 }
+
+// max_size_ accessor
+int String::max_size(){
+  return max_size_;
+}

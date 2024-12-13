@@ -17,6 +17,8 @@ int main(){
   display(str_bis);
   //test length accessor
   std::cout<<str.length()<<std::endl;
+  //test maximum size accessor
+  std::cout<<str.max_size()<<std::endl;
 
 
 }

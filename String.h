@@ -7,6 +7,7 @@ class String{
     String(const char* cstring);
 
     int length();
+    int max_size();
 
 
     char* string_ptr_;
