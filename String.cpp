@@ -25,7 +25,7 @@ string::~string(){
 }
 
 //copy constructor
-string::string(const String &str){
+string::string(const string &str){
   size_ = str.size_;
   capacity_ = str.capacity_;
   string_ptr_ = new char [size_+1];
@@ -35,14 +35,14 @@ string::string(const String &str){
 //constructor from a c-string
 string::string(const char* cstring){
   int len_cstring = 0;
-  while (cstring[len_cstring]!='\0'){len_cstring++};
+  while (cstring[len_cstring]!='\0'){len_cstring++;};
   this->size_ = len_cstring;
   this->capacity_ = this-> size_;
-  this->string_prt_ = new char [this->capacity_];
+  this->string_ptr_ = new char [this->capacity_];
   for (int i=0 ; i<size_ ; i++){
     this->string_ptr_[i] = cstring[i];
   }
-  this->string_ptr_[size_] = '\0'
+  this->string_ptr_[size_] = '\0';
 }
 
 //max_size_ accessor

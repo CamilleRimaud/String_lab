@@ -5,7 +5,6 @@ class string{
   public:
     string();
     ~string();
-    string();
     string(const string &str);
     string(const char* cstring);
 

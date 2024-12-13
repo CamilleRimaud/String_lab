@@ -22,6 +22,11 @@ int main(){
   //test copy constructor
   string copy_str(str);
   std::cout<<*copy_str.string_ptr_<<std::endl;
+}
 
-
+void display(const string str){
+  for (int i=0 ; i<str.size_ ; i++) {
+    std::cout<<str.string_ptr_[i];
+  }
+  std::cout<<std::endl;
 }
