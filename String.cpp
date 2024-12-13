@@ -1,5 +1,11 @@
-#include "String.h"
+/**
+Groupe 4BIM - B
+Student A : Paulène RIOU
+Student B : Albane WEBER
+Student C : Camille RIMAUD
+**/
 
+#include "String.h"
 
 //default constructor
 String::String(){
