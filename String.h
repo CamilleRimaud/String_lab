@@ -4,6 +4,7 @@
 class String{
   public:
     String();
+    String(const String &str);
 
     char* string_ptr_;
     int size_;
