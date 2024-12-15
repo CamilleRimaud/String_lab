@@ -10,7 +10,11 @@ class string{
 
     int length();
     int max_size();
-
+/**
+    void resize(int new_size, char c);
+    void operator=(const string& new_str);
+    string operator+(const string& str, char c);
+**/
 
     char* string_ptr_;
     int size_;
