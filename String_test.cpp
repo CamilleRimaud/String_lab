@@ -9,14 +9,13 @@ int main(){
   //test default constructor
   string str;
   std::cout<<*str.string_ptr_<<std::endl;
-  display(str);
+  str.display();
   //test constructor from c-string
   char cstr[51] = " "; 
-  std::cout << "Please write a word or short sentence of maximum 50 characters" << std::endl;
+  std::cout << "Please write a word of maximum 50 characters, with no space in between the letters, right here :" << std::endl;
   std::cin >> cstr;
   string str_bis(cstr);
-  display(cstr);
-  display(str_bis);
+  str_bis.display();
   //test length accessor
   std::cout<<str.length()<<std::endl;
   //test maximum size accessor
@@ -48,9 +47,4 @@ int main(){
   **/
 }
 
-void display(const string str){
-  for (int i=0 ; i<str.size_ ; i++) {
-    std::cout<<str.string_ptr_[i];
-  }
-  std::cout<<std::endl;
-}
+

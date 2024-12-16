@@ -6,6 +6,7 @@ Student C : Camille RIMAUD
 **/
 
 #include "String.h"
+#include <iostream>
 
 //default constructor
 string::string(){
@@ -32,6 +33,7 @@ string::string(const string &str){
   *string_ptr_ = *str.string_ptr_;
 }
 
+
 //constructor from a c-string
 string::string(const char* cstring){
   int len_cstring = 0;
@@ -47,6 +49,7 @@ string::string(const char* cstring){
   }
 }
 // NB : we could send an error message when the size passed as a parameter exceeds max_size_, we won't though, since we are not supposed to include any library, included <iostream>
+
 
 //max_size_ accessor
 int string::max_size(){
@@ -99,3 +102,10 @@ string string::operator+(const string& str, char c) {
 }
 **/
 
+
+void string::display() const {
+    for (int i = 0; i < size_; i++) {
+        std::cout << string_ptr_[i];
+    }
+    std::cout << std::endl; // add a line break after displaying the string
+}

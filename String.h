@@ -10,6 +10,9 @@ class string{
 
     int length();
     int max_size();
+    
+    // We added a "display" function to the class in order to check the results and be able to print strings produced by constructors and modified by function members
+    void display() const;
 /**
     void resize(int new_size, char c);
     void operator=(const string& new_str);
