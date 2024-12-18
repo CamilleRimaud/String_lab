@@ -1,3 +1,5 @@
+#include <cstddef>
+
 #ifndef STRING_H
 #define STRING_H
 
@@ -8,23 +10,23 @@ class string{
     string(const string &str);
     string(const char* cstring);
 
-    int length();
-    int max_size();
+    size_t length();
+    size_t max_size();
     
     // We added a "display" function to the class in order to check the results and be able to print strings produced by constructors and modified by function members
     void display() const;
     
-    void resize(int new_size, char c);
+    void resize(size_t new_size, char c);
     void operator=(const string& new_str);
     void operator+(char c);
-    void reserve(int n);
+    void reserve(size_t n);
 
     char* string_ptr_;
-    int size_;
-    int capacity_;
-    int max_size_ = 100;
+    size_t size_;
+    size_t capacity_;
+    size_t max_size_ = 100;
 
-  private:
+  protected:
 
 };
 

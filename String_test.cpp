@@ -1,6 +1,7 @@
 #include "String.h"
 #include <iostream>
 #include <cstdlib>
+#include <cstddef>
 
 void display(const string str);
 
