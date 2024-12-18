@@ -59,7 +59,7 @@ string::string(const char* cstring){
     }
     this->string_ptr_[size_] = '\0'; // add the null char at the end of the string produced by the constructor
   }
-  else {std::cout<<"Error : you are trying to construct a string of length superior to the maximum size : " << this->max_size_ << ". Please use a shorter string.\n";}
+  else {std::cerr<<"Error : you are trying to construct a string of length superior to the maximum size : " << this->max_size_ << ". Please use a shorter string.\n";}
 }
 
 //max_size_ accessor
@@ -74,7 +74,7 @@ size_t string::length(){
 
 // resize function 
 void string::resize(size_t new_size, char c){
-  if (new_size > this->max_size_) {std::cout<<"Error : you are trying to resize a string with length superior to the maximum size : " << this->max_size_ << ". Please use a lower size.\n";}
+  if (new_size > this->max_size_) {std::cerr<<"Error : you are trying to resize a string with length superior to the maximum size : " << this->max_size_ << ". Please use a lower size.\n";}
   else if (new_size < this->size_) { // if the new string is shorter than the previous
     for (size_t i= new_size; i <= this->size_ ; i++) {
       this->string_ptr_[i]='\0'; // remove all extra characters
