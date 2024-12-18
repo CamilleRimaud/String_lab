@@ -23,28 +23,35 @@ int main(){
   //test copy constructor
   string copy_str(str);
   std::cout<<*copy_str.string_ptr_<<std::endl;
-  /**
+  copy_str.display();
   //test resize function
   string str1;
-  display(str1);
+  str1.display();
+  std::cout<<str1.length()<<std::endl;
   str1.resize(30,'c');
-  display(str1);
+  std::cout<<str1.length()<<std::endl;
+  str1.display();
   str1.resize(3,'c');
-  display(str1);
+  std::cout<<str1.length()<<std::endl;
+  str1.display();
   str1.resize(130,'c');
-  display(str1);
+  std::cout<<str1.length()<<std::endl;
+  str1.display();
+  
   //test operator= from a string
   string str2;
   str2.resize(4,'c');
   string str3;
-  display(str2);
-  display(str3);
+  str2.display();
+  str3.display();
   str3.operator=(str2);
-  display(str3);
+  str3.display();
+  /**
   //test operator+ from a string and a char
-  str3 = operator+(str3,'g');
-  display(str3);
-  **/
+  string str4
+  str3 = operator+(str4,'g');
+  str4.display();
+ **/
 }
 
 

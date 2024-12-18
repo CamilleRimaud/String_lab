@@ -61,27 +61,28 @@ int string::length(){
   return size_;
 }
 
-/**
+
 // resize function 
 void string::resize(int new_size, char c){
   if (new_size < this->size_) { // if the new string is shorter than the previous
-    for (int i= new_size + 2 ; i <= this->size_ ; i++) {
-      this->string_ptr_[i]=0; // remove all extra characters
+    for (int i= new_size; i <= this->size_ ; i++) {
+      this->string_ptr_[i]='\0'; // remove all extra characters
     }
     this->size_ = new_size; // update size_
     this->capacity_ = new_size; // update capacity_
   }
-  if (new_size > this->size_) { // if the new string is longer than the previous
+  if ((new_size > this->size_) and (new_size < this->max_size_)) { // if the new string is longer than the previous but still shorter than the maximum size authorized (otherwise we can't build it)
     if (new_size > this->capacity_) {
-      this->reserve(new_size) // increase capacity up to new_size
+      this->reserve(new_size); // increase capacity up to new_size
     }
-    for (int i= size_ + 1 ; i <= new_size ; i++) {
+    for (int i= size_; i <= new_size+2; i++) {
       this->string_ptr_[i] = c; // add extra characters with value passed in parameters
     }
     this->size_ = new_size; // update size
   }
-  this->string_ptr_[new_size + 1] = '\0'; // add null pointer 
+  this->string_ptr_[new_size] = '\0'; // add null pointer 
 }
+
 
 // operator= from a string
 void string::operator=(const string& new_str) {
@@ -89,7 +90,7 @@ void string::operator=(const string& new_str) {
   this->resize(len,'c'); // update size_ and capacity_ according to parameter's size_ and capacity_
   *this->string_ptr_ = *new_str.string_ptr_; // update string value to parameter's string value
 }
-
+/**
 // concatenation of a string and a character
 string string::operator+(const string& str, char c) {
   string concat_str; // call to default constructor to build a string;
@@ -102,10 +103,35 @@ string string::operator+(const string& str, char c) {
 }
 **/
 
-
 void string::display() const {
     for (int i = 0; i < size_; i++) {
         std::cout << string_ptr_[i];
     }
     std::cout << std::endl; // add a line break after displaying the string
 }
+
+
+
+// RESERVE YOUSSEF
+void string::reserve(int n) {
+  if (n > capacity_) {
+    char* new_data = new char[n];
+    for (int i = 0; i < size_; ++i) {
+    new_data[i] = this->string_ptr_[i];		
+    }	
+    new_data[this->size_] = '\0';
+    delete [] this->string_ptr_;
+    this->string_ptr_ = new_data;
+    this->capacity_ = n;
+  }  
+}
+    
+
+
+
+
+
+
+
+
+
