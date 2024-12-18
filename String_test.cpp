@@ -46,12 +46,10 @@ int main(){
   str3.display();
   str3.operator=(str2);
   str3.display();
-  /**
   //test operator+ from a string and a char
-  string str4
-  str3 = operator+(str4,'g');
+  string str4;
+  str4.operator+('g');
   str4.display();
- **/
 }
 
 

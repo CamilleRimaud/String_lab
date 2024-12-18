@@ -16,9 +16,7 @@ class string{
     
     void resize(int new_size, char c);
     void operator=(const string& new_str);
- /**
-    string operator+(const string& str, char c);
-**/
+    void operator+(char c);
     void reserve(int n);
 
     char* string_ptr_;

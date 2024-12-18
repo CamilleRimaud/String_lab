@@ -90,18 +90,13 @@ void string::operator=(const string& new_str) {
   this->resize(len,'c'); // update size_ and capacity_ according to parameter's size_ and capacity_
   *this->string_ptr_ = *new_str.string_ptr_; // update string value to parameter's string value
 }
-/**
+
 // concatenation of a string and a character
-string string::operator+(const string& str, char c) {
-  string concat_str; // call to default constructor to build a string;
-  concat_str.resize(str.size_ + 1); // resize the newly created string to match to wanted size and minimum capacity
-  //size_ and capacity_ of concat_str are now updated
-  *concat_str.string_ptr = *str.string_ptr_;
-  *concat_str.string_ptr_[size_] = c;
-  *concat_str.string_ptr_[size_+1] = '\0';
-  return concat_str;
+void string::operator+(char c) {
+  this->resize(size_ + 1, c); // resize the string to size_ and capacity_ incremented by one, complete the string with character c passed as a parameter
+  //size_ and capacity_ of he string of interest are now updated as well as the pointer value (insertion of character c at the end of the string)
 }
-**/
+
 
 void string::display() const {
     for (int i = 0; i < size_; i++) {
