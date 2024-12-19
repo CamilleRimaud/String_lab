@@ -42,7 +42,9 @@ string::string(const string &str){
   size_ = str.size_;
   capacity_ = str.capacity_;
   string_ptr_ = new char [size_+1];
-  *string_ptr_ = *str.string_ptr_;
+  for (size_t i=0; i<size_+1 ; i++) {
+    string_ptr_[i] = str.string_ptr_[i];
+  }
 }
 
 //constructor from a c-string
@@ -71,6 +73,18 @@ size_t string::max_size(){
 size_t string::length(){
   return size_;
 }
+
+// size_ accessor
+size_t string::size(){
+   return size_;
+}
+
+/*
+// string_ptr accessor
+char* string::string_ptr(){
+  return string_ptr_;
+}
+*/
 
 // resize function 
 void string::resize(size_t new_size, char c){
@@ -116,6 +130,55 @@ void string::display() const {
     std::cout << std::endl; // add a line break after displaying the string
 }
 
+/*
+// operator+(const string&, const char*)
+string string::operator_concat(const string &str, const char* ptr) {
+  size_t size = str.size_+1;
+  if (size<max_size_){
+    char* new_str = new char [size];
+    for (size_t i=0; i<str.size_; i++){
+      new_str[i]=str.string_ptr_[i];
+    }
+    new_str[size] = *ptr;
+    return string(new_str);
+  }
+  else
+  {
+  std::cout<<"La taille de la chaine de caractére dépasse la taille limite imposée"<<std::endl;
+  return str;
+  }
+}
+*/
+
+// c_str function
+const char* string::c_str() {
+  char * ptr = new char[this->size_+1];
+  for (size_t i=0; i<size_+1 ; i++) {
+    ptr[i] = this->string_ptr_[i];
+  }
+  ptr[this->size_]='\0';
+  return ptr;
+}
+
+// clear function
+void string::clear(){
+  this->size_=0;
+  char * ptr = new char[size_+1];
+  ptr[0]='\0';
+  for (size_t i=0; i<size_+1; i++){
+    string_ptr_[i]=ptr[i];
+  }
+}
+
+// operator=(char) function
+void string::operator=(char c){
+  this->size_=1;
+  char * str_c = new char [size_+1];
+  str_c[0]=c;
+  for (size_t i=0; i<size_+1; i++){
+    string_ptr_[i]=str_c[i];
+  }
+}
 
 
 // RESERVE YOUSSEF
@@ -132,11 +195,6 @@ void string::reserve(size_t n) {
   }  
 }
     
-
-
-
-
-
 
 
 
