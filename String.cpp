@@ -30,7 +30,7 @@ string::string(){
   string_ptr_ = new char [capacity_];
   string_ptr_[size_] = '\0';
 }
-**/ 
+**/
 
 //destructor
 string::~string(){
@@ -51,7 +51,7 @@ string::string(const string &str){
 string::string(const char* cstring){
   size_t len_cstring = 0;
   while (cstring[len_cstring]!='\0'){len_cstring++;}; // determine the length of cstring
-  
+
   if (len_cstring < this->max_size_) { // only process the following instructions if size < max_size_
     this->size_ = len_cstring;
     this->capacity_ = this-> size_;
@@ -86,9 +86,11 @@ char* string::string_ptr(){
 }
 */
 
-// resize function 
+// resize function
+/** Specifications : la taille donnée en paramètre doit être un entier positif pour correspondre à size_t, c doit être un caractère compris entre des guillemets simples**/
 void string::resize(size_t new_size, char c){
-  if (new_size > this->max_size_) {std::cerr<<"Error : you are trying to resize a string with length superior to the maximum size : " << this->max_size_ << ". Please use a lower size.\n";}
+  if (new_size < 0) {std::cerr<<"Error : you can't ask for a negative size, please try again."; }
+  else if (new_size > this->max_size_) {std::cerr<<"Error : you are trying to resize a string with length superior to the maximum size : " << this->max_size_ << ". Please use a lower size.\n";}
   else if (new_size < this->size_) { // if the new string is shorter than the previous
     for (size_t i= new_size; i <= this->size_ ; i++) {
       this->string_ptr_[i]='\0'; // remove all extra characters
@@ -105,11 +107,12 @@ void string::resize(size_t new_size, char c){
     }
     this->size_ = new_size; // update size
   }
-  this->string_ptr_[new_size] = '\0'; // add null pointer 
+  this->string_ptr_[new_size] = '\0'; // add null pointer
 }
 
 
 // operator= from a string : assign the string to another string passed in parameter
+/** Specifications : the parameter must be of type string (an instance of the class string) **/
 void string::operator=(const string& new_str) {
   size_t len = new_str.size_; // get the length of new_str
   this->resize(len,'c'); // update size_ and capacity_ according to parameter's size_ and capacity_
@@ -117,6 +120,7 @@ void string::operator=(const string& new_str) {
 }
 
 // operator+ from a character : concatenation of a character to the string
+/** Specifications : the parameter must be a single character **/
 void string::operator+(char c) {
   this->resize(size_ + 1, c); // resize the string to size_ and capacity_ incremented by one, complete the string with character c passed as a parameter (use of the default behavior of resiez function, which automatically adds character indicated to the string when the new size is large
   //size_ and capacity_ of the string of concern are now updated as well as the pointer value (insertion of character c at the end of the string)
@@ -179,16 +183,11 @@ void string::reserve(size_t n) {
   if (n > capacity_) {
     char* new_data = new char[n];
     for (size_t i = 0; i < size_; ++i) {
-    new_data[i] = this->string_ptr_[i];		
-    }	
+    new_data[i] = this->string_ptr_[i];
+    }
     new_data[this->size_] = '\0';
     delete [] this->string_ptr_;
     this->string_ptr_ = new_data;
     this->capacity_ = n;
-  }  
+  }
 }
-    
-
-
-
-

@@ -40,7 +40,7 @@ int main(){
   std::cout<<std::endl;
 
   //TESTS ACCESSORS
-  std::cout<<"/nDébut des tests ACCESSEURS"<<std::endl;
+  std::cout<<"Début des tests ACCESSEURS"<<std::endl;
   std::cout<<std::endl;
   string str0;
   std::cout<<"Appel du constructeur par défaut au préalable"<<std::endl;
@@ -100,6 +100,18 @@ int main(){
   std::cout<<"Affichage de l'objet string str1 modifié : "<<std::endl;
   str1.display();
   std::cout<<"Nouvelle taille : "<<str1.length()<<std::endl;
+  std::cout<<"Test 6 : essayer de redimensionner à une valeur négative (-6 par exemple)"<<std::endl;
+  str1.resize(-6,'c');
+  std::cout<<"Affichage de l'objet string str1 modifié : "<<std::endl;
+  str1.display();
+  std::cout<<"Nouvelle taille : "<<str1.length()<<std::endl;
+  std::cout<<"Le paramètre négatif est traité comme s'il s'agissait d'un nombre supérieur à la taille maximum."<<std::endl;
+  std::cout<<"Test 7 : essayer de redimensionner à une valeur non entière (2.7 par exemple)"<<std::endl;
+  str1.resize(2.7,'c');
+  std::cout<<"Affichage de l'objet string str1 modifié : "<<std::endl;
+  str1.display();
+  std::cout<<"Nouvelle taille : "<<str1.length()<<std::endl;
+  std::cout<<"La fonction s'effectue sur la partie entière de la taille donnée en paramètre."<<std::endl;
   std::cout<<"Fin test fonction resize"<<std::endl;
   std::cout<<std::endl;
   //test c_str function
@@ -160,6 +172,10 @@ int main(){
   std::cout<<"Application de l'opérateur qui remplace str3 par str2 "<<std::endl;
   std::cout<<"Affichage de l'objet string str3 (valeur remplacée par celle de str2) : "<<std::endl;
   str3.display();
+  std::cout<<"Test supplémentaire : passer un objet différent d'une string (par exemple : un entier, un caractère...)";
+  str3.operator=(3);
+  str3.display();
+  std::cout<<"La fonction ne tourne pas dans ce cas (paramètre ne répondant pas aux spécifications)";
   std::cout<<"Fin test operator=(const string& new_str)"<<std::endl;
   std::cout<<std::endl;
   //test operator+ from a string and a char
@@ -172,6 +188,10 @@ int main(){
   std::cout<<"Application de l'opérateur qui concatène le caractère 'g' à str4 "<<std::endl;
   std::cout<<"Affichage de l'objet string str4 modifié par concaténation : "<<std::endl;
   str4.display();
+  std::cout<<"Test supplémentaire : passer un objet différent d'une string (par exemple : un entier, un caractère...)"<<std::endl;
+  str4.operator+(3);
+  str4.display();
+  std::cout<<"La fonction ne tourne pas dans ce cas (paramètre ne répondant pas aux spécifications)"<<std::endl;
   std::cout<<"Fin test operator+(char c)"<<std::endl;
 
 }
