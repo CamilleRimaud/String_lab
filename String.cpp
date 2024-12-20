@@ -13,7 +13,7 @@ Student C : Camille RIMAUD
 //initial default constructor : initialise a "Hello world" string
 string::string(){
   capacity_ = 20;
-  size_ = 15;
+  size_ = 13;
   char phrase[size_+1] = "Hello world !";
   string_ptr_ = new char [capacity_];
   for (size_t i=0; i<size_;i++){
@@ -130,25 +130,18 @@ void string::display() const {
     std::cout << std::endl; // add a line break after displaying the string
 }
 
-/*
 // operator+(const string&, const char*)
-string string::operator_concat(const string &str, const char* ptr) {
-  size_t size = str.size_+1;
-  if (size<max_size_){
-    char* new_str = new char [size];
-    for (size_t i=0; i<str.size_; i++){
-      new_str[i]=str.string_ptr_[i];
-    }
-    new_str[size] = *ptr;
-    return string(new_str);
+void string::operator_concat(const char* ptr) {
+  this->size_ = this->size_+1;
+  if (size_<this->max_size_){
+    this->capacity_ = this->size_;
+    string_ptr_[size_-1]=*ptr;
   }
   else
   {
   std::cout<<"La taille de la chaine de caractére dépasse la taille limite imposée"<<std::endl;
-  return str;
   }
 }
-*/
 
 // c_str function
 const char* string::c_str() {

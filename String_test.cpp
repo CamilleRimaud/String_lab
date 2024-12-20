@@ -4,7 +4,7 @@
 #include <cstddef>
 
 void display(const string str);
-//string operator_concat(const string &str, const char* ptr);
+//friend string operator_concat(const string &str, const char* ptr);
 
 
 int main(){
@@ -13,7 +13,7 @@ int main(){
   std::cout<<*str.string_ptr_<<std::endl;
   str.display();
   //test constructor from c-string
-  char cstr[51] = " "; 
+  char cstr[51] = " ";
   std::cout << "Please write a word of maximum 50 characters, with no space in between the letters, right here :" << std::endl;
   std::cin >> cstr;
   string str_bis(cstr);
@@ -26,10 +26,15 @@ int main(){
   std::cout<<"Début test size accessor"<<std::endl;
   std::cout<<str.size()<<std::endl;
   std::cout<<"Fin test size accessor"<<std::endl;
+  
   //test copy constructor
+  std::cout<<"Début test copy constructor"<<std::endl;
+  std::cout<<"String copié : "<<str.string_ptr_<<", Size : "<<str.size()<<", Capacity : "<<str.capacity_<<std::endl;
   string copy_str(str);
-  std::cout<<*copy_str.string_ptr_<<std::endl;
+  std::cout<<copy_str.string_ptr_<<std::endl;
   copy_str.display();
+  std::cout<<"Fin test copy constructor"<<std::endl;
+  
   //test resize function
   string str1;
   str1.display();
@@ -43,14 +48,14 @@ int main(){
   str1.resize(130,'c');
   std::cout<<str1.length()<<std::endl;
   str1.display();
-  
+
   //test c_str function
   std::cout<<"Début test c_str"<<std::endl;
   const char* c_str = str.c_str();
   std::cout<<*c_str<<std::endl;
   std::cout<<c_str<<std::endl;
   std::cout<<"Fin test c_str"<<std::endl;
-  
+
   //test clear fonction
   std::cout<<"Début test clear"<<std::endl;
   string str_clear;
@@ -61,7 +66,7 @@ int main(){
   std::cout<<*str_clear.string_ptr_<<std::endl;
   std::cout<<str_clear.string_ptr_<<std::endl;
   std::cout<<"Fin test clear"<<std::endl;
-  
+
   //test operator=(char) fonction
   std::cout<<"Début test operator=(char)"<<std::endl;
   string str_ope;
@@ -75,22 +80,19 @@ int main(){
   std::cout<<str_ope.string_ptr_<<std::endl;
   std::cout<<&str_ope.string_ptr_<<std::endl;
   std::cout<<"Fin test operator=(char)"<<std::endl;
-  
+
   //test operator+(const string&, const char*) fonction
   std::cout<<"Début test operator+(const string&, const char*)"<<std::endl;
-  const char e = 'e';
-  const char* e_ptr = &e;
-  std::cout<<e<<std::endl;
-  std::cout<<*e_ptr<<std::endl;
+  const char p = 'p';
+  const char* p_ptr = &p;
   string str_ope_concat;
-  /*
-  str_ope_concat = operator_concat(str, e_ptr);
-  std::cout<<str_ope_concat.size()<<std::endl;
-  std::cout<<str_ope_concat.string_ptr()<<std::endl;
-  */
+  std::cout<<"Ajout du caractére p à la fin du string : "<<str_ope_concat.string_ptr_<<std::endl;
+  str_ope_concat.operator_concat(p_ptr);
+  std::cout<<"Résultat : "<<str_ope_concat.string_ptr_<<std::endl;
+  std::cout<<"Size de la chaine de caractéres : "<<str_ope_concat.size()<<std::endl;
   std::cout<<"Fin test operator+(const string&, const char*)"<<std::endl;
-    
- 
+
+
   //test operator= from a string
   string str2;
   str2.resize(4,'c');
@@ -104,26 +106,4 @@ int main(){
   str4.operator+('g');
   str4.display();
 }
-
-/*
-// operator+(const string&, const char*)
-string operator_concat(const string &str, const char* ptr) {
-  size_t size_ = str.size();
-  char* string_ptr_ = str.string_ptr();
-  size_t size = size_+1;
-  if (size<max_size()){
-    char* new_str = new char [size];
-    for (size_t i=0; i<size_; i++){
-      new_str[i]=string_ptr_[i];
-    }
-    new_str[size] = *ptr;
-    return string(new_str);
-  }
-  else
-  {
-  std::cout<<"La taille de la chaine de caractére dépasse la taille limite imposée"<<std::endl;
-  return str;
-  }
-}
- */
 
