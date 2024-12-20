@@ -8,54 +8,107 @@ void display(const string str);
 
 
 int main(){
+  //TESTS CONSTRUCTORS AND DESTRUCTOR
+  std::cout<<"Début des tests CONSTRUCTEURS ET DESTRUCTEUR"<<std::endl;
+  std::cout<<std::endl;
   //test default constructor
+  std::cout<<"Début test constructeur par defaut"<<std::endl;
   string str;
-  std::cout<<*str.string_ptr_<<std::endl;
+  std::cout<<"Affichage du pointer initialisé : "<<*str.string_ptr_<<std::endl;
+  std::cout<<"Affichage de l'objet string initialisé : "<<std::endl;
   str.display();
+  std::cout<<"Taille : "<< str.size() << std::endl;
+  std::cout<<"Fin test constructeur par défaut"<<std::endl;
+  std::cout<<std::endl;
   //test constructor from c-string
+  std::cout<<"Début test constructeur à partir d'une c-string"<<std::endl;
   char cstr[51] = " ";
   std::cout << "Please write a word of maximum 50 characters, with no space in between the letters, right here :" << std::endl;
   std::cin >> cstr;
   string str_bis(cstr);
+  std::cout<<"Affichage de l'objet string initialisé à partir de votre c-string en entrée: "<<std::endl;
   str_bis.display();
-  //test length accessor
-  std::cout<<str.length()<<std::endl;
-  //test maximum size accessor
-  std::cout<<str.max_size()<<std::endl;
-  //test size accessor
-  std::cout<<"Début test size accessor"<<std::endl;
-  std::cout<<str.size()<<std::endl;
-  std::cout<<"Fin test size accessor"<<std::endl;
-  
+  std::cout<<"Fin test constructeur à partir d'une c-string"<<std::endl;
+  std::cout<<std::endl;
   //test copy constructor
   std::cout<<"Début test copy constructor"<<std::endl;
-  std::cout<<"String copié : "<<str.string_ptr_<<", Size : "<<str.size()<<", Capacity : "<<str.capacity_<<std::endl;
+  std::cout<<"String copié : "<<str.string_ptr_<<", Taille : "<<str.size()<<std::endl;
   string copy_str(str);
   std::cout<<copy_str.string_ptr_<<std::endl;
   copy_str.display();
   std::cout<<"Fin test copy constructor"<<std::endl;
-  
-  //test resize function
-  string str1;
-  str1.display();
-  std::cout<<str1.length()<<std::endl;
-  str1.resize(30,'c');
-  std::cout<<str1.length()<<std::endl;
-  str1.display();
-  str1.resize(3,'c');
-  std::cout<<str1.length()<<std::endl;
-  str1.display();
-  str1.resize(130,'c');
-  std::cout<<str1.length()<<std::endl;
-  str1.display();
+  std::cout<<std::endl;
 
+  //TESTS ACCESSORS
+  std::cout<<"/nDébut des tests ACCESSEURS"<<std::endl;
+  std::cout<<std::endl;
+  string str0;
+  std::cout<<"Appel du constructeur par défaut au préalable"<<std::endl;
+  std::cout<<"Affichage de l'objet string str0 initialisé : "<<std::endl;
+  str0.display();
+  std::cout<<std::endl;
+  //test length accessor
+  std::cout<<"Début test length accessor"<<std::endl;
+  std::cout<<"Affichage de length_ grâce à l'accesseur : "<<std::endl;
+  std::cout<<str.length()<<std::endl;
+  std::cout<<"Fin test length accessor"<<std::endl;
+  std::cout<<std::endl;
+  //test maximum size accessor
+  std::cout<<"Début test maximum size accessor"<<std::endl;
+  std::cout<<"Affichage de max_size_ grâce à l'accesseur : "<<std::endl;
+  std::cout<<str.max_size()<<std::endl;
+  std::cout<<"Fin test maximum size accessor"<<std::endl;
+  std::cout<<std::endl;
+  //test size accessor
+  std::cout<<"Début test size accessor"<<std::endl;
+  std::cout<<str.size()<<std::endl;
+  std::cout<<"Fin test size accessor"<<std::endl;
+  std::cout<<std::endl;
+
+  //TESTS OTHER MEMBER FUNCTIONS
+  std::cout<<"Début des tests AUTRES FONCTIONS MEMBRES"<<std::endl;
+  std::cout<<std::endl;
+  //test resize function
+  std::cout<<"Début test fonction resize"<<std::endl;
+  string str1;
+  std::cout<<"Appel du constructeur par défaut au préalable"<<std::endl;
+  std::cout<<"Affichage de l'objet string str1 initialisé : "<<std::endl;
+  str1.display();
+  std::cout<<"Taille initiale : "<< str1.length()<<std::endl;
+  std::cout<<"Test 1 : augmenter la taille de la string à 30"<<std::endl;
+  str1.resize(30,'c');
+  std::cout<<"Affichage de l'objet string str1 modifié : "<<std::endl;
+  str1.display();
+  std::cout<<"Nouvelle taille : " << str1.length()<<std::endl;
+  std::cout<<"Test 2 : diminuer la taille de la string à 3"<<std::endl;
+  str1.resize(3,'c');
+  std::cout<<"Affichage de l'objet string str1 modifié : "<<std::endl;
+  str1.display();
+  std::cout<<"Nouvelle taille : "<<str1.length()<<std::endl;
+  std::cout<<"Test 3 : essayer de redimensionner à une taille interdite"<<std::endl;
+  str1.resize(130,'c');
+  std::cout<<"Affichage de l'objet string str1 modifié : "<<std::endl;
+  str1.display();
+  std::cout<<"Nouvelle taille : "<<str1.length()<<std::endl;
+  std::cout<<"Test 4 : essayer de redimensionner à la taille limite supérieure (max = 100)"<<std::endl;
+  str1.resize(100,'c');
+  std::cout<<"Affichage de l'objet string str1 modifié : "<<std::endl;
+  str1.display();
+  std::cout<<"Nouvelle taille : "<<str1.length()<<std::endl;
+  std::cout<<"Test 5 : essayer de redimensionner à la taille limite inférieure (min = 0)"<<std::endl;
+  str1.resize(0,'c');
+  std::cout<<"Affichage de l'objet string str1 modifié : "<<std::endl;
+  str1.display();
+  std::cout<<"Nouvelle taille : "<<str1.length()<<std::endl;
+  std::cout<<"Fin test fonction resize"<<std::endl;
+  std::cout<<std::endl;
   //test c_str function
   std::cout<<"Début test c_str"<<std::endl;
   const char* c_str = str.c_str();
   std::cout<<*c_str<<std::endl;
   std::cout<<c_str<<std::endl;
   std::cout<<"Fin test c_str"<<std::endl;
-
+  std::cout<<std::endl;
   //test clear fonction
   std::cout<<"Début test clear"<<std::endl;
   string str_clear;
@@ -66,7 +119,7 @@ int main(){
   std::cout<<*str_clear.string_ptr_<<std::endl;
   std::cout<<str_clear.string_ptr_<<std::endl;
   std::cout<<"Fin test clear"<<std::endl;
-
+  std::cout<<std::endl;
   //test operator=(char) fonction
   std::cout<<"Début test operator=(char)"<<std::endl;
   string str_ope;
@@ -80,7 +133,7 @@ int main(){
   std::cout<<str_ope.string_ptr_<<std::endl;
   std::cout<<&str_ope.string_ptr_<<std::endl;
   std::cout<<"Fin test operator=(char)"<<std::endl;
-
+  std::cout<<std::endl;
   //test operator+(const string&, const char*) fonction
   std::cout<<"Début test operator+(const string&, const char*)"<<std::endl;
   const char p = 'p';
@@ -91,19 +144,34 @@ int main(){
   std::cout<<"Résultat : "<<str_ope_concat.string_ptr_<<std::endl;
   std::cout<<"Size de la chaine de caractéres : "<<str_ope_concat.size()<<std::endl;
   std::cout<<"Fin test operator+(const string&, const char*)"<<std::endl;
-
-
+  std::cout<<std::endl;
   //test operator= from a string
+  std::cout<<"Début test operator=(const string& new_str)"<<std::endl;
   string str2;
   str2.resize(4,'c');
-  string str3;
+  std::cout<<"Initialisation d'un objet str2 de taille 4"<<std::endl;
+  std::cout<<"Affichage de l'objet string str2 initialisé : "<<std::endl;
   str2.display();
+  string str3;
+  std::cout<<"Appel du constructeur par défaut pour créer une string str3"<<std::endl;
+  std::cout<<"Affichage de l'objet string str3 initialisé : "<<std::endl;
   str3.display();
   str3.operator=(str2);
+  std::cout<<"Application de l'opérateur qui remplace str3 par str2 "<<std::endl;
+  std::cout<<"Affichage de l'objet string str3 (valeur remplacée par celle de str2) : "<<std::endl;
   str3.display();
+  std::cout<<"Fin test operator=(const string& new_str)"<<std::endl;
+  std::cout<<std::endl;
   //test operator+ from a string and a char
+  std::cout<<"Début test operator+(char c)"<<std::endl;
   string str4;
-  str4.operator+('g');
+  std::cout<<"Appel du constructeur par défaut pour créer une string str3"<<std::endl;
+  std::cout<<"Affichage de l'objet string str3 initialisé : "<<std::endl;
   str4.display();
-}
+  str4.operator+('g');
+  std::cout<<"Application de l'opérateur qui concatène le caractère 'g' à str4 "<<std::endl;
+  std::cout<<"Affichage de l'objet string str4 modifié par concaténation : "<<std::endl;
+  str4.display();
+  std::cout<<"Fin test operator+(char c)"<<std::endl;
 
+}
