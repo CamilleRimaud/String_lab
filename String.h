@@ -23,6 +23,8 @@ class string{
     void operator+(char c);
     void reserve(size_t n);
 
+    bool empty();
+
     const char* c_str();
     void clear();
     void operator=(char c);

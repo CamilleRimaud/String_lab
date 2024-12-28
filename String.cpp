@@ -182,6 +182,13 @@ void string::operator=(char c){
   }
 }
 
+// empty function
+bool string::empty(){
+  if (this->size_==0){
+    return true;
+  }
+}
+
 
 // RESERVE YOUSSEF
 void string::reserve(size_t n) {

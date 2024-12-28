@@ -137,6 +137,16 @@ int main(){
   std::cout<<str_clear.string_ptr_<<std::endl;
   std::cout<<"Fin test clear"<<std::endl;
   std::cout<<std::endl;
+  //test empty function
+  std::cout<<"Début test empty"<<std::endl;
+  std::cout<<"Taille str1 : "<<str1.length()<<std::endl;
+  std::cout<<"str1 empty ? : "<<str1.empty()<<std::endl;
+  std::cout<<"Taille str_clear : "<<str_clear.length()<<std::endl;
+  std::cout<<"str_clear empty ? : "<<str_clear.empty()<<std::endl;
+  std::cout<<"Fin test clear"<<std::endl;
+  std::cout<<std::endl;
+
+
   //test operator=(char) fonction
   std::cout<<"Début test operator=(char)"<<std::endl;
   string str_ope;
