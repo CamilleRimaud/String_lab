@@ -187,6 +187,7 @@ bool string::empty(){
   if (this->size_==0){
     return true;
   }
+  return false;
 }
 
 
@@ -209,5 +210,5 @@ void string::reserve(size_t n) {
     this->string_ptr_ = new_data;
     this->capacity_ = n;
   }
-  
+
 }

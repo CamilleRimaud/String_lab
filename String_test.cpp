@@ -155,12 +155,13 @@ int main(){
   std::cout<<"Fin test clear"<<std::endl;
   std::cout<<std::endl;
   //test empty function
-  string str11;
+  string str_empty_test;
   std::cout<<"Début test empty"<<std::endl;
-  std::cout<<"Taille str11 : "<<str11.length()<<std::endl;
-  std::cout<<"str11 empty ? : "<<str11.empty()<<std::endl;
-  std::cout<<"Taille str_clear : "<<str_clear.length()<<std::endl;
-  std::cout<<"str_clear empty ? : "<<str_clear.empty()<<std::endl;
+  std::cout<<"Taille str_empty_test : "<<str_empty_test.length()<<std::endl;
+  std::cout<<"str_empty_test empty ? : "<<str_empty_test.empty()<<std::endl;
+  str_empty_test.clear();
+  std::cout<<"Taille str_empty_test : "<<str_empty_test.length()<<std::endl;
+  std::cout<<"str_empty_test empty ? : "<<str_empty_test.empty()<<std::endl;
   std::cout<<"Fin test clear"<<std::endl;
   std::cout<<std::endl;
 
@@ -179,6 +180,7 @@ int main(){
   std::cout<<&str_ope.string_ptr_<<std::endl;
   std::cout<<"Fin test operator=(char)"<<std::endl;
   std::cout<<std::endl;
+
   //test operator+(const string&, const char*) fonction
   std::cout<<"Début test operator+(const string&, const char*)"<<std::endl;
   const char p = 'p';
