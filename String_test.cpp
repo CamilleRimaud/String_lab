@@ -64,6 +64,11 @@ int main(){
   std::cout<<str.size()<<std::endl;
   std::cout<<"Fin test size accessor"<<std::endl;
   std::cout<<std::endl;
+  //test capacity accessor
+  std::cout<<"Début test capacity accessor"<<std::endl;
+  std::cout<<str.capacity()<<std::endl;
+  std::cout<<"Fin test capacity accessor"<<std::endl;
+  std::cout<<std::endl;
 
   //TESTS OTHER MEMBER FUNCTIONS
   std::cout<<"Début des tests AUTRES FONCTIONS MEMBRES"<<std::endl;

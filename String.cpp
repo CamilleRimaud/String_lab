@@ -79,6 +79,11 @@ size_t string::size(){
    return size_;
 }
 
+// capacity_ accessor
+size_t string::capacity(){
+   return capacity_;
+}
+
 /*
 // string_ptr accessor
 char* string::string_ptr(){

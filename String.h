@@ -13,6 +13,7 @@ class string{
     size_t length();
     size_t max_size();
     size_t size();
+    size_t capacity();
 
     // We added a "display" function to the class in order to check the results and be able to print strings produced by constructors and modified by function members
     void display() const;
@@ -28,11 +29,11 @@ class string{
     void operator_concat(const char* ptr);
 
     char* string_ptr_;
-    size_t capacity_;
 
   protected:
     size_t size_;
     size_t max_size_ = 100;
+    size_t capacity_;
 
 
 };
