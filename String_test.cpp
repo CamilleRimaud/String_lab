@@ -70,13 +70,28 @@ int main(){
   std::cout<<"Fin test capacity accessor"<<std::endl;
   std::cout<<std::endl;
 
+
+
   //TESTS OTHER MEMBER FUNCTIONS
   std::cout<<"Début des tests AUTRES FONCTIONS MEMBRES"<<std::endl;
   std::cout<<std::endl;
+
+  // test reserve function
+  std::cout<<"Début test fonction reserve"<<std::endl;
+  std::cout<<"Appel du constructeur par défaut au préalable"<<std::endl;
+  string str_test;
+  std::cout<<"Affichage de l'objet string str_test initialisé : "<<std::endl;
+  str_test.display();
+  std::cout<<"Capacité initiale : "<< str_test.capacity()<<std::endl;
+  std::cout<<"Test 1 : augmenter la capacité de la string jusqu'à 30"<<std::endl;
+  str_test.reserve(30);
+  std::cout<<"Nouvelle capacité : "<< str_test.capacity()<<std::endl;
+  std::cout<<"Fin test fonction reserve"<<std::endl;
+  std::cout<<std::endl;
   //test resize function
   std::cout<<"Début test fonction resize"<<std::endl;
-  string str1;
   std::cout<<"Appel du constructeur par défaut au préalable"<<std::endl;
+  string str1;
   std::cout<<"Affichage de l'objet string str1 initialisé : "<<std::endl;
   str1.display();
   std::cout<<"Taille initiale : "<< str1.length()<<std::endl;
@@ -119,6 +134,7 @@ int main(){
   std::cout<<"La fonction s'effectue sur la partie entière de la taille donnée en paramètre."<<std::endl;
   std::cout<<"Fin test fonction resize"<<std::endl;
   std::cout<<std::endl;
+
   //test c_str function
   std::cout<<"Début test c_str"<<std::endl;
   const char* c_str = str.c_str();
@@ -126,6 +142,7 @@ int main(){
   std::cout<<c_str<<std::endl;
   std::cout<<"Fin test c_str"<<std::endl;
   std::cout<<std::endl;
+
   //test clear fonction
   std::cout<<"Début test clear"<<std::endl;
   string str_clear;
@@ -138,9 +155,10 @@ int main(){
   std::cout<<"Fin test clear"<<std::endl;
   std::cout<<std::endl;
   //test empty function
+  string str11;
   std::cout<<"Début test empty"<<std::endl;
-  std::cout<<"Taille str1 : "<<str1.length()<<std::endl;
-  std::cout<<"str1 empty ? : "<<str1.empty()<<std::endl;
+  std::cout<<"Taille str11 : "<<str11.length()<<std::endl;
+  std::cout<<"str11 empty ? : "<<str11.empty()<<std::endl;
   std::cout<<"Taille str_clear : "<<str_clear.length()<<std::endl;
   std::cout<<"str_clear empty ? : "<<str_clear.empty()<<std::endl;
   std::cout<<"Fin test clear"<<std::endl;
@@ -208,5 +226,6 @@ int main(){
   str4.display();
   std::cout<<"La fonction ne tourne pas dans ce cas (paramètre ne répondant pas aux spécifications)"<<std::endl;
   std::cout<<"Fin test operator+(char c)"<<std::endl;
+
 
 }

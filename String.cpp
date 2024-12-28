@@ -190,8 +190,15 @@ bool string::empty(){
 }
 
 
-// RESERVE YOUSSEF
+
 void string::reserve(size_t n) {
+  /* RESERVE CAMILLE
+  if (n > capacity_){
+    this->capacity_ = n;
+  }
+  */
+
+  //RESERVE YOUSSEF
   if (n > capacity_) {
     char* new_data = new char[n];
     for (size_t i = 0; i < size_; ++i) {
@@ -202,4 +209,5 @@ void string::reserve(size_t n) {
     this->string_ptr_ = new_data;
     this->capacity_ = n;
   }
+  
 }
