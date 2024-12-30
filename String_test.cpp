@@ -162,7 +162,7 @@ int main(){
   str_empty_test.clear();
   std::cout<<"Taille str_empty_test : "<<str_empty_test.length()<<std::endl;
   std::cout<<"str_empty_test empty ? : "<<str_empty_test.empty()<<std::endl;
-  std::cout<<"Fin test clear"<<std::endl;
+  std::cout<<"Fin test empty"<<std::endl;
   std::cout<<std::endl;
 
 
