@@ -26,6 +26,8 @@ class string{
     bool empty();
     void operator=(const char* s);
 
+
+
     const char* c_str();
     void clear();
     void operator=(char c);

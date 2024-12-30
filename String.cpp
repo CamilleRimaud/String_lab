@@ -222,7 +222,5 @@ void string::operator=(const char* s){
     size_ = len_s;
     capacity_ = size_;
     *string_ptr_=*s;
-
   }
-
 }
