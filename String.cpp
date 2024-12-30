@@ -221,11 +221,7 @@ void string::operator=(const char* s){
   if (len_s < max_size_) { // only process the following instructions if size < max_size_
     size_ = len_s;
     capacity_ = size_;
-    char*  ps = new char[capacity_ + 1];
-    for (size_t i=0 ; i<size_ ; i++){
-      ps[i]=s[i]; // associate char values to the string pointed to (values = char values from cstring, in the same order)
-    }
-    string_ptr_ = ps; // update string value to parameter's string value
+    *string_ptr_=*s;
 
   }
 
