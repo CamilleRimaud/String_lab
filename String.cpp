@@ -193,12 +193,12 @@ bool string::empty(){
 
 
 void string::reserve(size_t n) {
-  /* RESERVE CAMILLE
+  // RESERVE CAMILLE
   if (n > capacity_){
     this->capacity_ = n;
   }
-  */
 
+  /*
   //RESERVE YOUSSEF
   if (n > capacity_) {
     char* new_data = new char[n];
@@ -209,6 +209,24 @@ void string::reserve(size_t n) {
     delete [] this->string_ptr_;
     this->string_ptr_ = new_data;
     this->capacity_ = n;
+  }
+  */
+}
+
+
+void string::operator=(const char* s){
+  size_t len_s = 0;
+  while (s[len_s]!='\0'){len_s++;}; // determine the length of cstring
+
+  if (len_s < max_size_) { // only process the following instructions if size < max_size_
+    size_ = len_s;
+    capacity_ = size_;
+    char*  ps = new char[capacity_ + 1];
+    for (size_t i=0 ; i<size_ ; i++){
+      ps[i]=s[i]; // associate char values to the string pointed to (values = char values from cstring, in the same order)
+    }
+    string_ptr_ = ps; // update string value to parameter's string value
+
   }
 
 }

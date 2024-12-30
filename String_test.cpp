@@ -75,7 +75,7 @@ int main(){
   //TESTS OTHER MEMBER FUNCTIONS
   std::cout<<"Début des tests AUTRES FONCTIONS MEMBRES"<<std::endl;
   std::cout<<std::endl;
-
+  /*
   // test reserve function
   std::cout<<"Début test fonction reserve"<<std::endl;
   std::cout<<"Appel du constructeur par défaut au préalable"<<std::endl;
@@ -134,15 +134,20 @@ int main(){
   std::cout<<"La fonction s'effectue sur la partie entière de la taille donnée en paramètre."<<std::endl;
   std::cout<<"Fin test fonction resize"<<std::endl;
   std::cout<<std::endl;
+  */
 
   //test c_str function
   std::cout<<"Début test c_str"<<std::endl;
   const char* c_str = str.c_str();
+  std::cout<<"*c_str : ";
   std::cout<<*c_str<<std::endl;
+  std::cout<<"c_str : ";
   std::cout<<c_str<<std::endl;
   std::cout<<"Fin test c_str"<<std::endl;
   std::cout<<std::endl;
+  // delete [] c_str; pour éviter les memory leaks !!!
 
+  /*
   //test clear fonction
   std::cout<<"Début test clear"<<std::endl;
   string str_clear;
@@ -228,6 +233,24 @@ int main(){
   str4.display();
   std::cout<<"La fonction ne tourne pas dans ce cas (paramètre ne répondant pas aux spécifications)"<<std::endl;
   std::cout<<"Fin test operator+(char c)"<<std::endl;
+  */
+  std::cout<<"Début test operator=(const char* s)"<<std::endl;
+  string str5;
+  std::cout<<"Affichage de l'objet string str5 initialisé : "<<std::endl;
+  str5.display();
+  std::cout<<"Affichage de l'objet string str_bis initial: "<<std::endl;
+  str_bis.display();
+  std::cout<<"Création du poiteur vers str_bis: "<<std::endl;
+  const char* s = str_bis.c_str();
+  std::cout<<"Application de l'opérateur qui remplace le contenu de str5 par celui du pointeur de str_bis "<<std::endl;
+  str5.operator=(s);
+  std::cout<<"Affichage de l'objet string str5 modifié : "<<std::endl;
+  str5.display();
+  std::cout<<"Fin test operator=(const char* s)"<<std::endl;
+
+
+
+
 
 
 }

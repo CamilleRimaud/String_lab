@@ -24,6 +24,7 @@ class string{
     void reserve(size_t n);
 
     bool empty();
+    void operator=(const char* s);
 
     const char* c_str();
     void clear();
