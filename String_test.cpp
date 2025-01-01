@@ -35,7 +35,6 @@ int main(){
   std::cout<<"String copié : "<<str.string_ptr_<<", Taille : "<<str.size()<<std::endl;
   string copy_str(str);
   std::cout<<copy_str.string_ptr_<<std::endl;
-  copy_str.display();
   std::cout<<"Fin test copy constructor"<<std::endl;
   std::cout<<std::endl;
 
@@ -61,6 +60,7 @@ int main(){
   std::cout<<std::endl;
   //test size accessor
   std::cout<<"Début test size accessor"<<std::endl;
+  std::cout<<"Affichage de size_ grâce à l'accesseur : "<<std::endl;
   std::cout<<str.size()<<std::endl;
   std::cout<<"Fin test size accessor"<<std::endl;
   std::cout<<std::endl;
@@ -137,7 +137,7 @@ int main(){
   */
 
   //test c_str function
-  std::cout<<"Début test c_str"<<std::endl;
+  std::cout<<"Début test fonction c_str"<<std::endl;
   const char* c_str = str.c_str();
   std::cout<<"*c_str : ";
   std::cout<<*c_str<<std::endl;
@@ -149,16 +149,17 @@ int main(){
 
   /*
   //test clear fonction
-  std::cout<<"Début test clear"<<std::endl;
+  std::cout<<"Début test fonction clear"<<std::endl;
   string str_clear;
-  std::cout<<*str_clear.string_ptr_<<std::endl;
+  std::cout<<"Affichage string initialisé  : "<<std::endl;
   std::cout<<str_clear.string_ptr_<<std::endl;
+  std::cout<<" de taille : "<<str_clear.size()<<std::endl;
   str_clear.clear();
-  std::cout<<str_clear.size()<<std::endl;
-  std::cout<<*str_clear.string_ptr_<<std::endl;
-  std::cout<<str_clear.string_ptr_<<std::endl;
+  std::cout<<"Affichage string aprés utilisation de la fonction clear : "<<str_clear.string_ptr_<<std::endl;
+  std::cout<<" de taille : "<<str_clear.size()<<std::endl;
   std::cout<<"Fin test clear"<<std::endl;
   std::cout<<std::endl;
+  
   //test empty function
   string str_empty_test;
   std::cout<<"Début test empty"<<std::endl;
@@ -172,28 +173,24 @@ int main(){
 
 
   //test operator=(char) fonction
-  std::cout<<"Début test operator=(char)"<<std::endl;
+  std::cout<<"Début test fonction operator=(char)"<<std::endl;
   string str_ope;
-  std::cout<<*str_ope.string_ptr_<<std::endl;
-  std::cout<<str_ope.string_ptr_<<std::endl;
+  std::cout<<"Affichage du string : "<<str_ope.string_ptr_<<" de taille : "<<str_ope.size()<<std::endl;
   char v = 'v';
   str_ope.operator=(v);
-  std::cout<<v<<std::endl;
-  std::cout<<str_ope.size()<<std::endl;
-  std::cout<<*str_ope.string_ptr_<<std::endl;
-  std::cout<<str_ope.string_ptr_<<std::endl;
-  std::cout<<&str_ope.string_ptr_<<std::endl;
+  std::cout<<"Charactère remplaçant : "<<v<<std::endl;
+  std::cout<<"Affichage du string aprés application de la fonction : "<<str_ope.string_ptr_<<" de taille : "<<str_ope.size()<<std::endl;
   std::cout<<"Fin test operator=(char)"<<std::endl;
   std::cout<<std::endl;
 
   //test operator+(const string&, const char*) fonction
-  std::cout<<"Début test operator+(const string&, const char*)"<<std::endl;
+  std::cout<<"Début test fonction operator+(const string&, const char*)"<<std::endl;
   const char p = 'p';
   const char* p_ptr = &p;
   string str_ope_concat;
-  std::cout<<"Ajout du caractére p à la fin du string : "<<str_ope_concat.string_ptr_<<std::endl;
+  std::cout<<"Ajout du caractére p à la fin du string : "<<str_ope_concat.string_ptr_<<" de la taille : "<<str_ope_concat.size()<<std::endl;
   str_ope_concat.operator_concat(p_ptr);
-  std::cout<<"Résultat : "<<str_ope_concat.string_ptr_<<std::endl;
+  std::cout<<"Résultat aprés application de la fonction : "<<str_ope_concat.string_ptr_<<std::endl;
   std::cout<<"Size de la chaine de caractéres : "<<str_ope_concat.size()<<std::endl;
   std::cout<<"Fin test operator+(const string&, const char*)"<<std::endl;
   std::cout<<std::endl;
