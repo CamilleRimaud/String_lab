@@ -88,6 +88,7 @@ int main(){
   std::cout<<"Nouvelle capacité : "<< str_test.capacity()<<std::endl;
   std::cout<<"Fin test fonction reserve"<<std::endl;
   std::cout<<std::endl;
+  */
   //test resize function
   std::cout<<"Début test fonction resize"<<std::endl;
   std::cout<<"Appel du constructeur par défaut au préalable"<<std::endl;
@@ -134,7 +135,7 @@ int main(){
   std::cout<<"La fonction s'effectue sur la partie entière de la taille donnée en paramètre."<<std::endl;
   std::cout<<"Fin test fonction resize"<<std::endl;
   std::cout<<std::endl;
-  */
+  
 
   //test c_str function
   std::cout<<"Début test fonction c_str"<<std::endl;
