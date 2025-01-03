@@ -215,6 +215,7 @@ int main(){
   std::cout<<"La fonction ne tourne pas dans ce cas (paramètre ne répondant pas aux spécifications)";
   std::cout<<"Fin test operator=(const string& new_str)"<<std::endl;
   std::cout<<std::endl;
+  */
   //test operator+ from a string and a char
   std::cout<<"Début test operator+(char c)"<<std::endl;
   string str4;
@@ -230,14 +231,14 @@ int main(){
   str4.display();
   std::cout<<"La fonction ne tourne pas dans ce cas (paramètre ne répondant pas aux spécifications)"<<std::endl;
   std::cout<<"Fin test operator+(char c)"<<std::endl;
-  */
+
   std::cout<<"Début test operator=(const char* s)"<<std::endl;
   string str5;
   std::cout<<"Affichage de l'objet string str5 initialisé : "<<std::endl;
   str5.display();
   std::cout<<"Affichage de l'objet string str_bis initial: "<<std::endl;
   str_bis.display();
-  std::cout<<"Création du poiteur vers str_bis: "<<std::endl;
+  std::cout<<"Création du pointeur vers str_bis: "<<std::endl;
   const char* s = str_bis.c_str();
   std::cout<<"*s : ";
   std::cout<<*s<<std::endl;
@@ -247,7 +248,14 @@ int main(){
   str5.operator=(s);
   std::cout<<"Affichage de l'objet string str5 modifié : "<<std::endl;
   str5.display();
-  std::cout<<"Fin test operator=(const char* s)"<<std::endl;
+  std::cout<<"Fin test operator=(const char* s) \n"<<std::endl;
+  std::cout<<"Début test operator+(const string& str)"<<std::endl;
+  string str6;
+  std::cout<<"Application de l'opérateur + "<<std::endl;
+  str6.operator+(str5);
+  std::cout<<"Affichage de l'objet string str6 modifié : "<<std::endl;
+  str6.display();
+  std::cout<<"Fin test operator+(const string& str)"<<std::endl;
 
 
 

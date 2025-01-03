@@ -132,6 +132,18 @@ void string::operator+(char c) {
 }
 
 
+void string::operator+(const string& str) {
+  size_t old_size_ = size_;
+  size_t new_size_ = size_ + str.size_;
+  char c ='i';
+  this->resize(new_size_+1, c);
+  for (size_t i=0; i<size_; i++){
+    string_ptr_[i+old_size_]=str.string_ptr_[i];
+  }
+
+}
+
+
 void string::display() const {
     for (size_t i = 0; i < size_; i++) {
         std::cout << string_ptr_[i];

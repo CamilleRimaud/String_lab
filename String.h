@@ -21,6 +21,7 @@ class string{
     void resize(size_t new_size, char c);
     void operator=(const string& new_str);
     void operator+(char c);
+    void operator+(const string& str);
     void reserve(size_t n);
 
     bool empty();
