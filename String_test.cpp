@@ -248,11 +248,18 @@ int main(){
   str5.operator=(s);
   std::cout<<"Affichage de l'objet string str5 modifié : "<<std::endl;
   str5.display();
+  std::cout<<"Taille : "<<str5.size()<<std::endl;
+  std::cout<<"Capacité : "<<str5.capacity()<<std::endl;
   std::cout<<"Fin test operator=(const char* s) \n"<<std::endl;
+  
   std::cout<<"Début test operator+(const string& str)"<<std::endl;
   string str6;
+  std::cout<<"Taille : "<<str6.size()<<std::endl;
+  std::cout<<"Capacité : "<<str6.capacity()<<std::endl;
   std::cout<<"Application de l'opérateur + "<<std::endl;
   str6.operator+(str5);
+  std::cout<<"Nouvelle taille : "<<str6.size()<<std::endl;
+  std::cout<<"Nouvelle capacité : "<<str6.capacity()<<std::endl;
   std::cout<<"Affichage de l'objet string str6 modifié : "<<std::endl;
   str6.display();
   std::cout<<"Fin test operator+(const string& str)"<<std::endl;
