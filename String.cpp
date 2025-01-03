@@ -194,6 +194,7 @@ void string::clear(){
   for (size_t i=0; i<size_+1; i++){
     string_ptr_[i]=ptr[i];
   }
+  delete[] ptr;
 }
 
 // operator=(char) function
@@ -204,6 +205,7 @@ void string::operator=(char c){
   for (size_t i=0; i<size_+1; i++){
     string_ptr_[i]=str_c[i];
   }
+  delete[] str_c;
 }
 
 // empty function

@@ -263,8 +263,7 @@ int main(){
   std::cout<<"Affichage de l'objet string str6 modifié : "<<std::endl;
   str6.display();
   std::cout<<"Fin test operator+(const string& str)"<<std::endl;
-
-
-
+  
+  delete[] s;
 
 }
