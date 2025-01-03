@@ -165,13 +165,14 @@ void string::operator_concat(const char* ptr) {
 
 // c_str function
 const char* string::c_str() {
-  char * ptr = new char[this->size_+1];
-  for (size_t i=0; i<size_+1 ; i++) {
-    ptr[i] = this->string_ptr_[i];
+  char * string_ptr_ = new char[this->size_+1];
+  for (size_t i=0; i<size_ ; i++) {
+    string_ptr_[i] = this->string_ptr_[i];
   }
-  ptr[this->size_]='\0';
-  return ptr;
+  string_ptr_[this->size_]='\0';
+  return string_ptr_;
 }
+
 
 // clear function
 void string::clear(){

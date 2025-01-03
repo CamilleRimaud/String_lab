@@ -32,9 +32,9 @@ int main(){
   std::cout<<std::endl;
   //test copy constructor
   std::cout<<"Début test copy constructor"<<std::endl;
-  std::cout<<"String copié : "<<str.string_ptr_<<", Taille : "<<str.size()<<std::endl;
+  std::cout<<"String copié : "<<str.string_ptr_<<" , taille : "<<str.size()<<std::endl;
   string copy_str(str);
-  std::cout<<copy_str.string_ptr_<<std::endl;
+  std::cout<<"Copie : "<<copy_str.string_ptr_<<" , taille : "<<copy_str.size()<<std::endl;
   std::cout<<"Fin test copy constructor"<<std::endl;
   std::cout<<std::endl;
 
@@ -139,15 +139,14 @@ int main(){
   //test c_str function
   std::cout<<"Début test fonction c_str"<<std::endl;
   const char* c_str = str.c_str();
-  std::cout<<"*c_str : ";
-  std::cout<<*c_str<<std::endl;
+  std::cout<<"Application sur le string : "<<str.string_ptr_<<std::endl;
   std::cout<<"c_str : ";
   std::cout<<c_str<<std::endl;
+  delete[] c_str;
   std::cout<<"Fin test c_str"<<std::endl;
   std::cout<<std::endl;
   // delete [] c_str; pour éviter les memory leaks !!!
 
-  /*
   //test clear fonction
   std::cout<<"Début test fonction clear"<<std::endl;
   string str_clear;
@@ -215,7 +214,7 @@ int main(){
   std::cout<<"La fonction ne tourne pas dans ce cas (paramètre ne répondant pas aux spécifications)";
   std::cout<<"Fin test operator=(const string& new_str)"<<std::endl;
   std::cout<<std::endl;
-  */
+
   //test operator+ from a string and a char
   std::cout<<"Début test operator+(char c)"<<std::endl;
   string str4;
