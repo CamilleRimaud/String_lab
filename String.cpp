@@ -54,7 +54,7 @@ string::string(const char* cstring){
 
   if (len_cstring < this->max_size_) { // only process the following instructions if size < max_size_
     this->size_ = len_cstring;
-    this->capacity_ = this-> size_;
+    this->capacity_ = this-> size_+1; // add one for the null character
     this->string_ptr_ = new char [this->capacity_]; // initialise a pointer to string in the heap with the size "capacity"
     for (size_t i=0 ; i<size_ ; i++){
       this->string_ptr_[i] = cstring[i]; // associate char values to the string pointed to (values = char values from cstring, in the same order)
@@ -94,10 +94,9 @@ char* string::string_ptr(){
 // resize function
 /** Specifications : la taille donnée en paramètre doit être un entier positif pour correspondre à size_t, c doit être un caractère compris entre des guillemets simples**/
 void string::resize(size_t new_size, char c){
-  if (new_size < 0) {std::cerr<<"Error : you can't ask for a negative size, please try again."; }
-  else if (new_size > this->max_size_) {std::cerr<<"Error : you are trying to resize a string with length superior to the maximum size : " << this->max_size_ << ". Please use a lower size.\n";}
+  if (new_size > this->max_size_) {std::cerr<<"Error : you are trying to resize a string with length superior to the maximum size : " << this->max_size_ << ". Please use a lower size.\n";}
   else if (new_size < this->size_) { // if the new string is shorter than the previous
-    for (size_t i= new_size; i <= this->size_ ; i++) {
+    for (size_t i= new_size; i < this->size_ ; i++) {
       this->string_ptr_[i]='\0'; // remove all extra characters
     }
     this->size_ = new_size; // update size_
@@ -107,7 +106,7 @@ void string::resize(size_t new_size, char c){
     if (new_size > this->capacity_) {
       this->reserve(new_size); // increase capacity up to new_size
     }
-    for (size_t i= size_; i <= new_size+2; i++) {
+    for (size_t i= size_; i < new_size; i++) {
       this->string_ptr_[i] = c; // add extra characters with value passed in parameters
     }
     this->size_ = new_size; // update size
