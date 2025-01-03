@@ -93,25 +93,32 @@ char* string::string_ptr(){
 
 // resize function
 /** Specifications : la taille donnée en paramètre doit être un entier positif pour correspondre à size_t, c doit être un caractère compris entre des guillemets simples**/
-void string::resize(size_t new_size, char c){
+void string::resize(size_t new_size, char filling_char){
   if (new_size > this->max_size_) {std::cerr<<"Error : you are trying to resize a string with length superior to the maximum size : " << this->max_size_ << ". Please use a lower size.\n";}
   else if (new_size < this->size_) { // if the new string is shorter than the previous
     for (size_t i= new_size; i < this->size_ ; i++) {
       this->string_ptr_[i]='\0'; // remove all extra characters
     }
     this->size_ = new_size; // update size_
-    this->capacity_ = new_size; // update capacity_
+    this->capacity_ = new_size+1; // update capacity_
   }
   else if (new_size > this->size_) { // if the new string is longer than the previous but still shorter than the maximum size authorized (otherwise we can't build it)
+    char* new_string_ptr = new char[new_size + 1]; // add one for null character
     if (new_size > this->capacity_) {
       this->reserve(new_size); // increase capacity up to new_size
     }
     for (size_t i= size_; i < new_size; i++) {
-      this->string_ptr_[i] = c; // add extra characters with value passed in parameters
+      new_string_ptr[i] = filling_char; // add extra characters with value passed in parameters
     }
+    new_string_ptr[new_size] = '\0'; // add null pointer
     this->size_ = new_size; // update size
+    delete[] this->string_ptr_; //liberate memory of former string pointer
+    // reallocate pointer and size
+    this->string_ptr_ = new_string_ptr;
+    this->size_ = new_size;
   }
-  this->string_ptr_[new_size] = '\0'; // add null pointer
+
+  // In case new_size == this->size : we don't need to do anything
 }
 
 
@@ -144,10 +151,15 @@ void string::operator+(const string& str) {
 
 
 void string::display() const {
-    for (size_t i = 0; i < size_; i++) {
-        std::cout << string_ptr_[i];
+    if (string_ptr_ != nullptr) {
+        for (size_t i = 0; i < size_; i++) {
+            std::cout << string_ptr_[i];
+        }
+        std::cout << std::endl; // add a line break after displaying the string
+    } 
+    else {
+        std::cerr << "Erreur : string_ptr_ est un pointeur nul : impossible d'afficher une chaine de caractères." << std::endl;
     }
-    std::cout << std::endl; // add a line break after displaying the string
 }
 
 // operator+(const string&, const char*)
