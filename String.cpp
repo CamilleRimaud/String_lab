@@ -221,6 +221,8 @@ void string::operator=(const char* s){
   if (len_s < max_size_) { // only process the following instructions if size < max_size_
     size_ = len_s;
     capacity_ = size_;
-    *string_ptr_=*s;
+    for (size_t i=0; i < size_; i++){
+      string_ptr_[i]=s[i];
+    }
   }
 }

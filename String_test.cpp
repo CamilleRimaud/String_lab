@@ -159,7 +159,7 @@ int main(){
   std::cout<<" de taille : "<<str_clear.size()<<std::endl;
   std::cout<<"Fin test clear"<<std::endl;
   std::cout<<std::endl;
-  
+
   //test empty function
   string str_empty_test;
   std::cout<<"Début test empty"<<std::endl;
@@ -239,6 +239,10 @@ int main(){
   str_bis.display();
   std::cout<<"Création du poiteur vers str_bis: "<<std::endl;
   const char* s = str_bis.c_str();
+  std::cout<<"*s : ";
+  std::cout<<*s<<std::endl;
+  std::cout<<"s : ";
+  std::cout<<s<<std::endl;
   std::cout<<"Application de l'opérateur qui remplace le contenu de str5 par celui du pointeur de str_bis "<<std::endl;
   str5.operator=(s);
   std::cout<<"Affichage de l'objet string str5 modifié : "<<std::endl;
