@@ -251,12 +251,12 @@ int main(){
   std::cout<<"Taille : "<<str5.size()<<std::endl;
   std::cout<<"Capacité : "<<str5.capacity()<<std::endl;
   std::cout<<"Fin test operator=(const char* s) \n"<<std::endl;
-  
+
   std::cout<<"Début test operator+(const string& str)"<<std::endl;
   string str6;
   std::cout<<"Taille : "<<str6.size()<<std::endl;
   std::cout<<"Capacité : "<<str6.capacity()<<std::endl;
-  std::cout<<"Application de l'opérateur + "<<std::endl;
+  std::cout<<"Application de l'opérateur de concaténation "<<std::endl;
   str6.operator+(str5);
   std::cout<<"Nouvelle taille : "<<str6.size()<<std::endl;
   std::cout<<"Nouvelle capacité : "<<str6.capacity()<<std::endl;

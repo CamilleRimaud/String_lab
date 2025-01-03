@@ -229,12 +229,9 @@ void string::reserve(size_t n) {
 void string::operator=(const char* s){
   size_t len_s = 0;
   while (s[len_s]!='\0'){len_s++;}; // determine the length of cstring
-
-  if (len_s < max_size_) { // only process the following instructions if size < max_size_
-    size_ = len_s;
-    capacity_ = size_;
-    for (size_t i=0; i < size_; i++){
-      string_ptr_[i]=s[i];
-    }
+  char c ='i';
+  this->resize(len_s, c);
+  for (size_t i=0; i < size_; i++){
+    string_ptr_[i]=s[i];
   }
 }
