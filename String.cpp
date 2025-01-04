@@ -154,7 +154,7 @@ void string::clear(){
   delete[] ptr;
 }
 
-// empty function : check if the string is empty (return 0 if true, 1 if false)
+// empty function : check if the string is empty (return 0 if false, 1 if true)
 bool string::empty(){
   if (this->size_==0){
     return true;

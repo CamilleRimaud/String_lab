@@ -17,21 +17,26 @@ class string{
 
     // We added a "display" function to the class in order to check the results and be able to print strings produced by constructors and modified by function members
     void display() const;
-    
+
     void reserve(size_t n);
     void resize(size_t new_size, char c);
+    void clear();
+    bool empty();
+
+    const char* c_str();
+
     void operator=(const string& new_str);
     void operator+(char c);
     void operator+(const string& str);
 
 
-    bool empty();
+
     void operator=(const char* s);
 
 
 
-    const char* c_str();
-    void clear();
+
+
     void operator=(char c);
     void operator_concat(const char* ptr);
 

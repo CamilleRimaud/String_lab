@@ -89,7 +89,7 @@ int main(){
   str_test.reserve(10);
   std::cout<<"Fin test fonction reserve"<<std::endl;
   std::cout<<std::endl;
-  /*
+
   //test resize function
   std::cout<<"Début test fonction resize"<<std::endl;
   std::cout<<"Appel du constructeur par défaut au préalable"<<std::endl;
@@ -137,27 +137,14 @@ int main(){
   std::cout<<"Fin test fonction resize"<<std::endl;
   std::cout<<std::endl;
 
-
-  //test c_str function
-  std::cout<<"Début test fonction c_str"<<std::endl;
-  const char* c_str = str.c_str();
-  std::cout<<"Application sur le string : "<<str.string_ptr_<<std::endl;
-  std::cout<<"c_str : ";
-  std::cout<<c_str<<std::endl;
-  delete[] c_str;
-  std::cout<<"Fin test c_str"<<std::endl;
-  std::cout<<std::endl;
-  // delete [] c_str; pour éviter les memory leaks !!!
-
   //test clear fonction
   std::cout<<"Début test fonction clear"<<std::endl;
   string str_clear;
-  std::cout<<"Affichage string initialisé  : "<<std::endl;
-  std::cout<<str_clear.string_ptr_<<std::endl;
-  std::cout<<" de taille : "<<str_clear.size()<<std::endl;
+  std::cout<<"Affichage string initialisé  : "<<str_clear.string_ptr_<<std::endl;
+  std::cout<<"Taille : "<<str_clear.size()<<std::endl;
   str_clear.clear();
   std::cout<<"Affichage string aprés utilisation de la fonction clear : "<<str_clear.string_ptr_<<std::endl;
-  std::cout<<" de taille : "<<str_clear.size()<<std::endl;
+  std::cout<<"Taille : "<<str_clear.size()<<std::endl;
   std::cout<<"Fin test clear"<<std::endl;
   std::cout<<std::endl;
 
@@ -172,7 +159,7 @@ int main(){
   std::cout<<"Fin test empty"<<std::endl;
   std::cout<<std::endl;
 
-
+  /*
   //test operator=(char) fonction
   std::cout<<"Début test fonction operator=(char)"<<std::endl;
   string str_ope;
@@ -182,6 +169,16 @@ int main(){
   std::cout<<"Charactère remplaçant : "<<v<<std::endl;
   std::cout<<"Affichage du string aprés application de la fonction : "<<str_ope.string_ptr_<<" de taille : "<<str_ope.size()<<std::endl;
   std::cout<<"Fin test operator=(char)"<<std::endl;
+  std::cout<<std::endl;
+
+  //test c_str function
+  std::cout<<"Début test fonction c_str"<<std::endl;
+  const char* c_str = str.c_str();
+  std::cout<<"Application sur le string : "<<str.string_ptr_<<std::endl;
+  std::cout<<"c_str : ";
+  std::cout<<c_str<<std::endl;
+  delete[] c_str;
+  std::cout<<"Fin test c_str"<<std::endl;
   std::cout<<std::endl;
 
   //test operator+(const string&, const char*) fonction
