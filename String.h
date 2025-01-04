@@ -10,19 +10,20 @@ class string{
     string(const string &str); //copy constructor
     string(const char* cstring);
 
-    size_t length();
+    size_t length(); // same as size() accessor
+    size_t size(); // same as length() accessor
     size_t max_size();
-    size_t size();
     size_t capacity();
 
     // We added a "display" function to the class in order to check the results and be able to print strings produced by constructors and modified by function members
     void display() const;
-
+    
+    void reserve(size_t n);
     void resize(size_t new_size, char c);
     void operator=(const string& new_str);
     void operator+(char c);
     void operator+(const string& str);
-    void reserve(size_t n);
+
 
     bool empty();
     void operator=(const char* s);

@@ -12,13 +12,20 @@ int main(){
   std::cout<<"Début des tests CONSTRUCTEURS ET DESTRUCTEUR"<<std::endl;
   std::cout<<std::endl;
   //test default constructor
-  std::cout<<"Début test constructeur par defaut"<<std::endl;
+  std::cout<<"Début test constructeur par défaut"<<std::endl;
   string str;
   std::cout<<"Affichage du pointer initialisé : "<<*str.string_ptr_<<std::endl;
   std::cout<<"Affichage de l'objet string initialisé : "<<std::endl;
   str.display();
   std::cout<<"Taille : "<< str.size() << std::endl;
   std::cout<<"Fin test constructeur par défaut"<<std::endl;
+  std::cout<<std::endl;
+  //test copy constructor
+  std::cout<<"Début test copy constructor"<<std::endl;
+  std::cout<<"String copié : "<<str.string_ptr_<<" , taille : "<<str.size()<<std::endl;
+  string copy_str(str);
+  std::cout<<"Copie : "<<copy_str.string_ptr_<<" , taille : "<<copy_str.size()<<std::endl;
+  std::cout<<"Fin test copy constructor"<<std::endl;
   std::cout<<std::endl;
   //test constructor from c-string
   std::cout<<"Début test constructeur à partir d'une c-string"<<std::endl;
@@ -29,13 +36,6 @@ int main(){
   std::cout<<"Affichage de l'objet string initialisé à partir de votre c-string en entrée: "<<std::endl;
   str_bis.display();
   std::cout<<"Fin test constructeur à partir d'une c-string"<<std::endl;
-  std::cout<<std::endl;
-  //test copy constructor
-  std::cout<<"Début test copy constructor"<<std::endl;
-  std::cout<<"String copié : "<<str.string_ptr_<<" , taille : "<<str.size()<<std::endl;
-  string copy_str(str);
-  std::cout<<"Copie : "<<copy_str.string_ptr_<<" , taille : "<<copy_str.size()<<std::endl;
-  std::cout<<"Fin test copy constructor"<<std::endl;
   std::cout<<std::endl;
 
   //TESTS ACCESSORS
@@ -52,17 +52,17 @@ int main(){
   std::cout<<str.length()<<std::endl;
   std::cout<<"Fin test length accessor"<<std::endl;
   std::cout<<std::endl;
-  //test maximum size accessor
-  std::cout<<"Début test maximum size accessor"<<std::endl;
-  std::cout<<"Affichage de max_size_ grâce à l'accesseur : "<<std::endl;
-  std::cout<<str.max_size()<<std::endl;
-  std::cout<<"Fin test maximum size accessor"<<std::endl;
-  std::cout<<std::endl;
   //test size accessor
   std::cout<<"Début test size accessor"<<std::endl;
   std::cout<<"Affichage de size_ grâce à l'accesseur : "<<std::endl;
   std::cout<<str.size()<<std::endl;
   std::cout<<"Fin test size accessor"<<std::endl;
+  std::cout<<std::endl;
+  //test maximum size accessor
+  std::cout<<"Début test maximum size accessor"<<std::endl;
+  std::cout<<"Affichage de max_size_ grâce à l'accesseur : "<<std::endl;
+  std::cout<<str.max_size()<<std::endl;
+  std::cout<<"Fin test maximum size accessor"<<std::endl;
   std::cout<<std::endl;
   //test capacity accessor
   std::cout<<"Début test capacity accessor"<<std::endl;
@@ -75,7 +75,6 @@ int main(){
   //TESTS OTHER MEMBER FUNCTIONS
   std::cout<<"Début des tests AUTRES FONCTIONS MEMBRES"<<std::endl;
   std::cout<<std::endl;
-  /*
   // test reserve function
   std::cout<<"Début test fonction reserve"<<std::endl;
   std::cout<<"Appel du constructeur par défaut au préalable"<<std::endl;
@@ -86,9 +85,11 @@ int main(){
   std::cout<<"Test 1 : augmenter la capacité de la string jusqu'à 30"<<std::endl;
   str_test.reserve(30);
   std::cout<<"Nouvelle capacité : "<< str_test.capacity()<<std::endl;
+  std::cout<<"Test 2 : réduire la capacité de la string à 10"<<std::endl;
+  str_test.reserve(10);
   std::cout<<"Fin test fonction reserve"<<std::endl;
   std::cout<<std::endl;
-  */
+  /*
   //test resize function
   std::cout<<"Début test fonction resize"<<std::endl;
   std::cout<<"Appel du constructeur par défaut au préalable"<<std::endl;
@@ -135,7 +136,7 @@ int main(){
   std::cout<<"La fonction s'effectue sur la partie entière de la taille donnée en paramètre."<<std::endl;
   std::cout<<"Fin test fonction resize"<<std::endl;
   std::cout<<std::endl;
-  
+
 
   //test c_str function
   std::cout<<"Début test fonction c_str"<<std::endl;
@@ -263,7 +264,8 @@ int main(){
   std::cout<<"Affichage de l'objet string str6 modifié : "<<std::endl;
   str6.display();
   std::cout<<"Fin test operator+(const string& str)"<<std::endl;
-  
+
   delete[] s;
+  */
 
 }

@@ -65,11 +65,6 @@ string::string(const char* cstring){
 }
 
 // ACCESSSORS
-//max_size_ accessor
-size_t string::max_size(){
-  return max_size_;
-}
-
 // length_accessor
 size_t string::length(){
   return size_;
@@ -78,6 +73,11 @@ size_t string::length(){
 // size_ accessor
 size_t string::size(){
    return size_;
+}
+
+//max_size_ accessor
+size_t string::max_size(){
+  return max_size_;
 }
 
 // capacity_ accessor
@@ -104,6 +104,12 @@ void string::display() const {
     else {
         std::cerr << "Erreur : string_ptr_ est un pointeur nul : impossible d'afficher une chaine de caractères." << std::endl;
     }
+}
+
+// reserve function : change the capacity for a change of size up to n characters
+void string::reserve(size_t n) {
+  if (n > capacity_){this->capacity_ = n;}
+  else {std::cerr<<"Error : the requested capacity must be superior to the current capacity : "<<this->capacity_<<". Please use a lower capacity.\n";}
 }
 
 // resize function
@@ -136,13 +142,6 @@ void string::resize(size_t new_size, char filling_char){
   // In case new_size == this->size : we don't need to do anything
 }
 
-// reserve function
-void string::reserve(size_t n) {
-  // RESERVE CAMILLE
-  if (n > capacity_){
-    this->capacity_ = n;
-  }
-}
 
 // clear function : erase the content of a string (no characters left)
 void string::clear(){
