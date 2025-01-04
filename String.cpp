@@ -145,6 +145,8 @@ void string::resize(size_t new_size, char filling_char){
 */
 
 
+
+
 // clear function : erase the content of a string (no characters left)
 void string::clear(){
   this->size_=0;
