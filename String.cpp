@@ -113,8 +113,7 @@ void string::reserve(size_t n) {
 }
 
 // resize function
-// Specifications : la taille donnée en paramètre doit être un entier positif pour correspondre à size_t, c doit être un caractère compris entre des guillemets simples**/
-/*
+/** Specifications : la taille donnée en paramètre doit être un entier positif pour correspondre à size_t, c doit être un caractère compris entre des guillemets simples**/
 void string::resize(size_t new_size, char filling_char){
   if (new_size > this->max_size_) {std::cerr<<"Error : you are trying to resize a string with length superior to the maximum size : " << this->max_size_ << ". Please use a lower size.\n";}
   else if (new_size < this->size_) { // if the new string is shorter than the previous
@@ -142,9 +141,6 @@ void string::resize(size_t new_size, char filling_char){
 
   // In case new_size == this->size : we don't need to do anything
 }
-*/
-
-
 
 
 // clear function : erase the content of a string (no characters left)

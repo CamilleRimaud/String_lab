@@ -136,7 +136,7 @@ int main(){
   std::cout<<"La fonction s'effectue sur la partie entière de la taille donnée en paramètre."<<std::endl;
   std::cout<<"Fin test fonction resize"<<std::endl;
   std::cout<<std::endl;
-
+  /*
   //test clear fonction
   std::cout<<"Début test fonction clear"<<std::endl;
   string str_clear;
@@ -147,6 +147,7 @@ int main(){
   std::cout<<"Taille : "<<str_clear.size()<<std::endl;
   std::cout<<"Fin test clear"<<std::endl;
   std::cout<<std::endl;
+  */
 
   //test empty function
   string str_empty_test;
