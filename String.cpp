@@ -22,6 +22,11 @@ string::string(){
   string_ptr_[size_] = '\0';
 }
 
+//destructor
+string::~string(){
+  delete[] string_ptr_;
+}
+
 /**
 //final default constructor : initialise an empty string
 string::string(){
@@ -31,11 +36,6 @@ string::string(){
   string_ptr_[size_] = '\0';
 }
 **/
-
-//destructor
-string::~string(){
-  delete[] string_ptr_;
-}
 
 //copy constructor
 string::string(const string &str){
@@ -64,6 +64,7 @@ string::string(const char* cstring){
   else {std::cerr<<"Error : you are trying to construct a string of length superior to the maximum size : " << this->max_size_ << ". Please use a shorter string.\n";}
 }
 
+// ACCESSSORS
 //max_size_ accessor
 size_t string::max_size(){
   return max_size_;
@@ -90,6 +91,20 @@ char* string::string_ptr(){
   return string_ptr_;
 }
 */
+
+// MEMBER FUNCTIONS
+// We added a "display" function to the class in order to check the results and be able to print strings produced by constructors and modified by function members
+void string::display() const {
+    if (string_ptr_ != nullptr) {
+        for (size_t i = 0; i < size_; i++) {
+            std::cout << string_ptr_[i];
+        }
+        std::cout << std::endl; // add a line break after displaying the string
+    }
+    else {
+        std::cerr << "Erreur : string_ptr_ est un pointeur nul : impossible d'afficher une chaine de caractères." << std::endl;
+    }
+}
 
 // resize function
 /** Specifications : la taille donnée en paramètre doit être un entier positif pour correspondre à size_t, c doit être un caractère compris entre des guillemets simples**/
@@ -121,61 +136,35 @@ void string::resize(size_t new_size, char filling_char){
   // In case new_size == this->size : we don't need to do anything
 }
 
-
-// operator= from a string : assign the string to another string passed in parameter
-/** Specifications : the parameter must be of type string (an instance of the class string) **/
-void string::operator=(const string& new_str) {
-  size_t len = new_str.size_; // get the length of new_str
-  this->resize(len,'c'); // update size_ and capacity_ according to parameter's size_ and capacity_
-  *this->string_ptr_ = *new_str.string_ptr_; // update string value to parameter's string value
-}
-
-// operator+ from a character : concatenation of a character to the string
-/** Specifications : the parameter must be a single character **/
-void string::operator+(char c) {
-  this->resize(size_ + 1, c); // resize the string to size_ and capacity_ incremented by one, complete the string with character c passed as a parameter (use of the default behavior of resiez function, which automatically adds character indicated to the string when the new size is large
-  //size_ and capacity_ of the string of concern are now updated as well as the pointer value (insertion of character c at the end of the string)
-}
-
-
-void string::operator+(const string& str) {
-  size_t old_size_ = size_;
-  size_t new_size_ = size_ + str.size_;
-  char c ='i';
-  this->resize(new_size_, c);
-  for (size_t i=0; i<size_; i++){
-    string_ptr_[i+old_size_]=str.string_ptr_[i];
-  }
-
-}
-
-
-void string::display() const {
-    if (string_ptr_ != nullptr) {
-        for (size_t i = 0; i < size_; i++) {
-            std::cout << string_ptr_[i];
-        }
-        std::cout << std::endl; // add a line break after displaying the string
-    } 
-    else {
-        std::cerr << "Erreur : string_ptr_ est un pointeur nul : impossible d'afficher une chaine de caractères." << std::endl;
-    }
-}
-
-// operator+(const string&, const char*)
-void string::operator_concat(const char* ptr) {
-  this->size_ = this->size_+1;
-  if (size_<this->max_size_){
-    this->capacity_ = this->size_;
-    string_ptr_[size_-1]=*ptr;
-  }
-  else
-  {
-  std::cout<<"La taille de la chaine de caractére dépasse la taille limite imposée"<<std::endl;
+// reserve function
+void string::reserve(size_t n) {
+  // RESERVE CAMILLE
+  if (n > capacity_){
+    this->capacity_ = n;
   }
 }
 
-// c_str function
+// clear function : erase the content of a string (no characters left)
+void string::clear(){
+  this->size_=0;
+  char * ptr = new char[size_+1];
+  ptr[0]='\0';
+  for (size_t i=0; i<size_+1; i++){
+    string_ptr_[i]=ptr[i];
+  }
+  delete[] ptr;
+}
+
+// empty function : check if the string is empty (return 0 if true, 1 if false)
+bool string::empty(){
+  if (this->size_==0){
+    return true;
+  }
+  return false;
+}
+
+
+// c_str function : create a c-string from a string
 const char* string::c_str() {
   char * string_ptr_ = new char[this->size_+1];
   for (size_t i=0; i<size_ ; i++) {
@@ -186,15 +175,13 @@ const char* string::c_str() {
 }
 
 
-// clear function
-void string::clear(){
-  this->size_=0;
-  char * ptr = new char[size_+1];
-  ptr[0]='\0';
-  for (size_t i=0; i<size_+1; i++){
-    string_ptr_[i]=ptr[i];
-  }
-  delete[] ptr;
+// OPERATORS
+// operator= from a string : assign the string to another string passed in parameter
+/** Specifications : the parameter must be of type string (an instance of the class string) **/
+void string::operator=(const string& new_str) {
+  size_t len = new_str.size_; // get the length of new_str
+  this->resize(len,'c'); // update size_ and capacity_ according to parameter's size_ and capacity_
+  *this->string_ptr_ = *new_str.string_ptr_; // update string value to parameter's string value
 }
 
 // operator=(char) function
@@ -208,38 +195,7 @@ void string::operator=(char c){
   delete[] str_c;
 }
 
-// empty function
-bool string::empty(){
-  if (this->size_==0){
-    return true;
-  }
-  return false;
-}
-
-
-
-void string::reserve(size_t n) {
-  // RESERVE CAMILLE
-  if (n > capacity_){
-    this->capacity_ = n;
-  }
-
-  /*
-  //RESERVE YOUSSEF
-  if (n > capacity_) {
-    char* new_data = new char[n];
-    for (size_t i = 0; i < size_; ++i) {
-    new_data[i] = this->string_ptr_[i];
-    }
-    new_data[this->size_] = '\0';
-    delete [] this->string_ptr_;
-    this->string_ptr_ = new_data;
-    this->capacity_ = n;
-  }
-  */
-}
-
-
+// operator= from a c-string : assign the c-string to the current string
 void string::operator=(const char* s){
   size_t len_s = 0;
   while (s[len_s]!='\0'){len_s++;}; // determine the length of cstring
@@ -247,5 +203,38 @@ void string::operator=(const char* s){
   this->resize(len_s, c);
   for (size_t i=0; i < size_; i++){
     string_ptr_[i]=s[i];
+  }
+}
+
+// operator+ from a character : concatenation of a character to the string
+/** Specifications : the parameter must be a single character **/
+void string::operator+(char c) {
+  this->resize(size_ + 1, c); // resize the string to size_ and capacity_ incremented by one, complete the string with character c passed as a parameter (use of the default behavior of resiez function, which automatically adds character indicated to the string when the new size is large
+  //size_ and capacity_ of the string of concern are now updated as well as the pointer value (insertion of character c at the end of the string)
+}
+
+// operator+ from a string : concatenation of a second string to the string
+void string::operator+(const string& str) {
+  size_t old_size_ = size_;
+  size_t new_size_ = size_ + str.size_;
+  char c ='i';
+  this->resize(new_size_, c);
+  for (size_t i=0; i<size_; i++){
+    string_ptr_[i+old_size_]=str.string_ptr_[i];
+  }
+
+}
+
+// operator+ from a c-string : concatenation of a c-string to the string
+// operator+(const string&, const char*)
+void string::operator_concat(const char* ptr) {
+  this->size_ = this->size_+1;
+  if (size_<this->max_size_){
+    this->capacity_ = this->size_;
+    string_ptr_[size_-1]=*ptr;
+  }
+  else
+  {
+  std::cout<<"La taille de la chaine de caractére dépasse la taille limite imposée"<<std::endl;
   }
 }
