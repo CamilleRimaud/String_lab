@@ -128,6 +128,9 @@ void string::resize(size_t new_size, char filling_char){
     if (new_size > this->capacity_) {
       this->reserve(new_size); // increase capacity up to new_size
     }
+    for (size_t i= 0; i < size_; i++) {
+      new_string_ptr[i] = string_ptr_[i]; // add extra characters with value passed in parameters
+    }
     for (size_t i= size_; i < new_size; i++) {
       new_string_ptr[i] = filling_char; // add extra characters with value passed in parameters
     }
