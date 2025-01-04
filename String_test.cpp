@@ -159,7 +159,19 @@ int main(){
   std::cout<<"Fin test empty"<<std::endl;
   std::cout<<std::endl;
 
-  /*
+  //test c_str function
+  std::cout<<"Début test fonction c_str"<<std::endl;
+  const char* c_str = str.c_str();
+  std::cout<<"Application sur le string : "<<str.string_ptr_<<std::endl;
+  std::cout<<"c_str : ";
+  std::cout<<c_str<<std::endl;
+  delete[] c_str;
+  std::cout<<"Fin test c_str"<<std::endl;
+  std::cout<<std::endl;
+
+  //TESTS OPERATORS
+  std::cout<<"Début des tests OPÉRATEURS"<<std::endl;
+  std::cout<<std::endl;
   //test operator=(char) fonction
   std::cout<<"Début test fonction operator=(char)"<<std::endl;
   string str_ope;
@@ -171,27 +183,6 @@ int main(){
   std::cout<<"Fin test operator=(char)"<<std::endl;
   std::cout<<std::endl;
 
-  //test c_str function
-  std::cout<<"Début test fonction c_str"<<std::endl;
-  const char* c_str = str.c_str();
-  std::cout<<"Application sur le string : "<<str.string_ptr_<<std::endl;
-  std::cout<<"c_str : ";
-  std::cout<<c_str<<std::endl;
-  delete[] c_str;
-  std::cout<<"Fin test c_str"<<std::endl;
-  std::cout<<std::endl;
-
-  //test operator+(const string&, const char*) fonction
-  std::cout<<"Début test fonction operator+(const string&, const char*)"<<std::endl;
-  const char p = 'p';
-  const char* p_ptr = &p;
-  string str_ope_concat;
-  std::cout<<"Ajout du caractére p à la fin du string : "<<str_ope_concat.string_ptr_<<" de la taille : "<<str_ope_concat.size()<<std::endl;
-  str_ope_concat.operator_concat(p_ptr);
-  std::cout<<"Résultat aprés application de la fonction : "<<str_ope_concat.string_ptr_<<std::endl;
-  std::cout<<"Size de la chaine de caractéres : "<<str_ope_concat.size()<<std::endl;
-  std::cout<<"Fin test operator+(const string&, const char*)"<<std::endl;
-  std::cout<<std::endl;
   //test operator= from a string
   std::cout<<"Début test operator=(const string& new_str)"<<std::endl;
   string str2;
@@ -207,29 +198,15 @@ int main(){
   std::cout<<"Application de l'opérateur qui remplace str3 par str2 "<<std::endl;
   std::cout<<"Affichage de l'objet string str3 (valeur remplacée par celle de str2) : "<<std::endl;
   str3.display();
+  std::cout<<std::endl;
   std::cout<<"Test supplémentaire : passer un objet différent d'une string (par exemple : un entier, un caractère...)";
   str3.operator=(3);
   str3.display();
-  std::cout<<"La fonction ne tourne pas dans ce cas (paramètre ne répondant pas aux spécifications)";
+  std::cout<<"La fonction ne tourne pas dans ce cas (paramètre ne répondant pas aux spécifications)"<<std::endl;
   std::cout<<"Fin test operator=(const string& new_str)"<<std::endl;
   std::cout<<std::endl;
 
-  //test operator+ from a string and a char
-  std::cout<<"Début test operator+(char c)"<<std::endl;
-  string str4;
-  std::cout<<"Appel du constructeur par défaut pour créer une string str3"<<std::endl;
-  std::cout<<"Affichage de l'objet string str3 initialisé : "<<std::endl;
-  str4.display();
-  str4.operator+('g');
-  std::cout<<"Application de l'opérateur qui concatène le caractère 'g' à str4 "<<std::endl;
-  std::cout<<"Affichage de l'objet string str4 modifié par concaténation : "<<std::endl;
-  str4.display();
-  std::cout<<"Test supplémentaire : passer un objet différent d'une string (par exemple : un entier, un caractère...)"<<std::endl;
-  str4.operator+(3);
-  str4.display();
-  std::cout<<"La fonction ne tourne pas dans ce cas (paramètre ne répondant pas aux spécifications)"<<std::endl;
-  std::cout<<"Fin test operator+(char c)"<<std::endl;
-
+  //test operator= from a c-string
   std::cout<<"Début test operator=(const char* s)"<<std::endl;
   string str5;
   std::cout<<"Affichage de l'objet string str5 initialisé : "<<std::endl;
@@ -250,8 +227,42 @@ int main(){
   std::cout<<"Capacité : "<<str5.capacity()<<std::endl;
   std::cout<<"Fin test operator=(const char* s) \n"<<std::endl;
 
+
+  //test operator+(const string&, const char*) fonction
+  std::cout<<"Début test fonction operator+(const string&, const char*)"<<std::endl;
+  const char p = 'p';
+  const char* p_ptr = &p;
+  string str_ope_concat;
+  std::cout<<"Ajout du caractère p à la fin du string : "<<str_ope_concat.string_ptr_<<" de la taille : "<<str_ope_concat.size()<<std::endl;
+  str_ope_concat.operator_concat(p_ptr);
+  std::cout<<"Résultat aprés application de la fonction : "<<str_ope_concat.string_ptr_<<std::endl;
+  std::cout<<"Size de la chaine de caractéres : "<<str_ope_concat.size()<<std::endl;
+  std::cout<<"Fin test operator+(const string&, const char*)"<<std::endl;
+  std::cout<<std::endl;
+
+
+  //test operator+ from a string and a char
+  std::cout<<"Début test operator+(char c)"<<std::endl;
+  string str4;
+  std::cout<<"Appel du constructeur par défaut pour créer une string str3"<<std::endl;
+  std::cout<<"Affichage de l'objet string str3 initialisé : "<<std::endl;
+  str4.display();
+  str4.operator+('g');
+  std::cout<<"Application de l'opérateur qui concatène le caractère 'g' à str4 "<<std::endl;
+  std::cout<<"Affichage de l'objet string str4 modifié par concaténation : "<<std::endl;
+  str4.display();
+  std::cout<<"Test supplémentaire : passer un objet différent d'une string (par exemple : un entier, un caractère...)";
+  str4.operator+(3);
+  str4.display();
+  std::cout<<"La fonction ne tourne pas dans ce cas (paramètre ne répondant pas aux spécifications)"<<std::endl;
+  std::cout<<"Fin test operator+(char c)"<<std::endl;
+  std::cout<<std::endl;
+
+  ////test operator+ from to strings
   std::cout<<"Début test operator+(const string& str)"<<std::endl;
   string str6;
+  std::cout<<"Affichage de l'objet string str6 initialisé : "<<std::endl;
+  str6.display();
   std::cout<<"Taille : "<<str6.size()<<std::endl;
   std::cout<<"Capacité : "<<str6.capacity()<<std::endl;
   std::cout<<"Application de l'opérateur de concaténation "<<std::endl;
@@ -263,6 +274,5 @@ int main(){
   std::cout<<"Fin test operator+(const string& str)"<<std::endl;
 
   delete[] s;
-  */
 
 }

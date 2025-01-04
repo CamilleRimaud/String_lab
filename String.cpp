@@ -175,14 +175,6 @@ const char* string::c_str() {
 
 
 // OPERATORS
-// operator= from a string : assign the string to another string passed in parameter
-/** Specifications : the parameter must be of type string (an instance of the class string) **/
-void string::operator=(const string& new_str) {
-  size_t len = new_str.size_; // get the length of new_str
-  this->resize(len,'c'); // update size_ and capacity_ according to parameter's size_ and capacity_
-  *this->string_ptr_ = *new_str.string_ptr_; // update string value to parameter's string value
-}
-
 // operator=(char) function
 void string::operator=(char c){
   this->size_=1;
@@ -194,6 +186,14 @@ void string::operator=(char c){
   delete[] str_c;
 }
 
+// operator= from a string : assign the string to another string passed in parameter
+/** Specifications : the parameter must be of type string (an instance of the class string) **/
+void string::operator=(const string& new_str) {
+  size_t len = new_str.size_; // get the length of new_str
+  this->resize(len,'c'); // update size_ and capacity_ according to parameter's size_ and capacity_
+  *this->string_ptr_ = *new_str.string_ptr_; // update string value to parameter's string value
+}
+
 // operator= from a c-string : assign the c-string to the current string
 void string::operator=(const char* s){
   size_t len_s = 0;
@@ -202,6 +202,20 @@ void string::operator=(const char* s){
   this->resize(len_s, c);
   for (size_t i=0; i < size_; i++){
     string_ptr_[i]=s[i];
+  }
+}
+
+// operator+ from a c-string : concatenation of a c-string to the string
+// operator+(const string&, const char*)
+void string::operator_concat(const char* ptr) {
+  this->size_ = this->size_+1;
+  if (size_<this->max_size_){
+    this->capacity_ = this->size_;
+    string_ptr_[size_-1]=*ptr;
+  }
+  else
+  {
+  std::cout<<"La taille de la chaine de caractére dépasse la taille limite imposée"<<std::endl;
   }
 }
 
@@ -220,20 +234,5 @@ void string::operator+(const string& str) {
   this->resize(new_size_, c);
   for (size_t i=0; i<size_; i++){
     string_ptr_[i+old_size_]=str.string_ptr_[i];
-  }
-
-}
-
-// operator+ from a c-string : concatenation of a c-string to the string
-// operator+(const string&, const char*)
-void string::operator_concat(const char* ptr) {
-  this->size_ = this->size_+1;
-  if (size_<this->max_size_){
-    this->capacity_ = this->size_;
-    string_ptr_[size_-1]=*ptr;
-  }
-  else
-  {
-  std::cout<<"La taille de la chaine de caractére dépasse la taille limite imposée"<<std::endl;
   }
 }

@@ -10,6 +10,8 @@ class string{
     string(const string &str); //copy constructor
     string(const char* cstring);
 
+    char* string_ptr_; // pointer to the array of characters
+
     size_t length(); // same as size() accessor
     size_t size(); // same as length() accessor
     size_t max_size();
@@ -25,22 +27,15 @@ class string{
 
     const char* c_str();
 
+    void operator=(char c);
     void operator=(const string& new_str);
-    void operator+(char c);
-    void operator+(const string& str);
-
-
-
     void operator=(const char* s);
 
 
-
-
-
-    void operator=(char c);
     void operator_concat(const char* ptr);
+    void operator+(char c);
+    void operator+(const string& str);
 
-    char* string_ptr_;
 
   protected:
     size_t size_;
