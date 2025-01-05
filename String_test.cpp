@@ -20,13 +20,6 @@ int main(){
   std::cout<<"Taille : "<< str.size() << std::endl;
   std::cout<<"Fin test constructeur par défaut"<<std::endl;
   std::cout<<std::endl;
-  //test copy constructor
-  std::cout<<"Début test copy constructor"<<std::endl;
-  std::cout<<"String copié : "<<str.string_ptr_<<" , taille : "<<str.size()<<std::endl;
-  string copy_str(str);
-  std::cout<<"Copie : "<<copy_str.string_ptr_<<" , taille : "<<copy_str.size()<<std::endl;
-  std::cout<<"Fin test copy constructor"<<std::endl;
-  std::cout<<std::endl;
   //test constructor from c-string
   std::cout<<"Début test constructeur à partir d'une c-string"<<std::endl;
   char cstr[51] = " ";
@@ -37,36 +30,45 @@ int main(){
   str_bis.display();
   std::cout<<"Fin test constructeur à partir d'une c-string"<<std::endl;
   std::cout<<std::endl;
+  //test copy constructor
+  std::cout<<"Début test copy constructor"<<std::endl;
+  char hello[14] = "Hello world !";
+  string str_init(hello);
+  std::cout<<"String copié : "<<str_init.string_ptr_<<" , taille : "<<str_init.size()<<"A partir du constructeur à partir d'une c-string"<<std::endl;
+  string copy_str(str_init);
+  std::cout<<"Copie : "<<copy_str.string_ptr_<<" , taille : "<<copy_str.size()<<std::endl;
+  std::cout<<"Fin test copy constructor"<<std::endl;
+  std::cout<<std::endl;
 
   //TESTS ACCESSORS
   std::cout<<"Début des tests ACCESSEURS"<<std::endl;
   std::cout<<std::endl;
-  string str0;
-  std::cout<<"Appel du constructeur par défaut au préalable"<<std::endl;
+  string str0(hello);
+  std::cout<<"Appel du constructeur à partir d'une c-string au préalable"<<std::endl;
   std::cout<<"Affichage de l'objet string str0 initialisé : "<<std::endl;
   str0.display();
   std::cout<<std::endl;
   //test length accessor
   std::cout<<"Début test length accessor"<<std::endl;
   std::cout<<"Affichage de length_ grâce à l'accesseur : "<<std::endl;
-  std::cout<<str.length()<<std::endl;
+  std::cout<<str0.length()<<std::endl;
   std::cout<<"Fin test length accessor"<<std::endl;
   std::cout<<std::endl;
   //test size accessor
   std::cout<<"Début test size accessor"<<std::endl;
   std::cout<<"Affichage de size_ grâce à l'accesseur : "<<std::endl;
-  std::cout<<str.size()<<std::endl;
+  std::cout<<str0.size()<<std::endl;
   std::cout<<"Fin test size accessor"<<std::endl;
   std::cout<<std::endl;
   //test maximum size accessor
   std::cout<<"Début test maximum size accessor"<<std::endl;
   std::cout<<"Affichage de max_size_ grâce à l'accesseur : "<<std::endl;
-  std::cout<<str.max_size()<<std::endl;
+  std::cout<<str0.max_size()<<std::endl;
   std::cout<<"Fin test maximum size accessor"<<std::endl;
   std::cout<<std::endl;
   //test capacity accessor
   std::cout<<"Début test capacity accessor"<<std::endl;
-  std::cout<<str.capacity()<<std::endl;
+  std::cout<<str0.capacity()<<std::endl;
   std::cout<<"Fin test capacity accessor"<<std::endl;
   std::cout<<std::endl;
 
@@ -77,8 +79,8 @@ int main(){
   std::cout<<std::endl;
   // test reserve function
   std::cout<<"Début test fonction reserve"<<std::endl;
-  std::cout<<"Appel du constructeur par défaut au préalable"<<std::endl;
-  string str_test;
+  std::cout<<"Appel du constructeur à partir d'une c-string au préalable"<<std::endl;
+  string str_test(hello);
   std::cout<<"Affichage de l'objet string str_test initialisé : "<<std::endl;
   str_test.display();
   std::cout<<"Capacité initiale : "<< str_test.capacity()<<std::endl;
@@ -92,8 +94,8 @@ int main(){
 
   //test resize function
   std::cout<<"Début test fonction resize"<<std::endl;
-  std::cout<<"Appel du constructeur par défaut au préalable"<<std::endl;
-  string str1;
+  std::cout<<"Appel du constructeur à partir d'une c-string au préalable"<<std::endl;
+  string str1(hello);
   std::cout<<"Affichage de l'objet string str1 initialisé : "<<std::endl;
   str1.display();
   std::cout<<"Taille initiale : "<< str1.length()<<std::endl;
@@ -139,7 +141,7 @@ int main(){
 
   //test clear fonction
   std::cout<<"Début test fonction clear"<<std::endl;
-  string str_clear;
+  string str_clear(hello);
   std::cout<<"Affichage string initialisé  : "<<str_clear.string_ptr_<<std::endl;
   std::cout<<"Taille : "<<str_clear.size()<<std::endl;
   str_clear.clear();
@@ -150,7 +152,7 @@ int main(){
 
 
   //test empty function
-  string str_empty_test;
+  string str_empty_test(hello);
   std::cout<<"Début test empty"<<std::endl;
   std::cout<<"Taille str_empty_test : "<<str_empty_test.length()<<std::endl;
   std::cout<<"str_empty_test empty ? : "<<str_empty_test.empty()<<std::endl;
@@ -163,8 +165,8 @@ int main(){
 
   //test c_str function
   std::cout<<"Début test fonction c_str"<<std::endl;
-  const char* c_str = str.c_str();
-  std::cout<<"Application sur le string : "<<str.string_ptr_<<std::endl;
+  const char* c_str = str0.c_str();
+  std::cout<<"Application sur le string : "<<str0.string_ptr_<<std::endl;
   std::cout<<"c_str : ";
   std::cout<<c_str<<std::endl;
   delete[] c_str;
@@ -176,7 +178,7 @@ int main(){
   std::cout<<std::endl;
   //test operator=(char) fonction
   std::cout<<"Début test fonction operator=(char)"<<std::endl;
-  string str_ope;
+  string str_ope(hello);
   std::cout<<"Affichage du string : "<<str_ope.string_ptr_<<" de taille : "<<str_ope.size()<<std::endl;
   char v = 'v';
   str_ope.operator=(v);
@@ -187,13 +189,13 @@ int main(){
 
   //test operator= from a string
   std::cout<<"Début test operator=(const string& new_str)"<<std::endl;
-  string str2;
+  string str2(hello);
   str2.resize(4,'c');
   std::cout<<"Initialisation d'un objet str2 de taille 4"<<std::endl;
   std::cout<<"Affichage de l'objet string str2 initialisé : "<<std::endl;
   str2.display();
-  string str3;
-  std::cout<<"Appel du constructeur par défaut pour créer une string str3"<<std::endl;
+  string str3(hello);
+  std::cout<<"Appel du constructeur à partir d'une c-string pour créer une string str3"<<std::endl;
   std::cout<<"Affichage de l'objet string str3 initialisé : "<<std::endl;
   str3.display();
   str3.operator=(str2);
@@ -210,7 +212,7 @@ int main(){
 
   //test operator= from a c-string
   std::cout<<"Début test operator=(const char* s)"<<std::endl;
-  string str5;
+  string str5(hello);
   std::cout<<"Affichage de l'objet string str5 initialisé : "<<std::endl;
   str5.display();
   std::cout<<"Affichage de l'objet string str_bis initial: "<<std::endl;
@@ -230,7 +232,7 @@ int main(){
 
   //test operator+(const string&, const char*) fonction
   std::cout<<"Début test fonction operator+(const string&, const char*)"<<std::endl;
-  string str_ope_concat;
+  string str_ope_concat(hello);
   std::cout<<"Affichage de l'objet string str_ope_concat initialisé : "<<std::endl;
   str_ope_concat.display();
   std::cout<<"Ajout du c-string s créé précédemment"<<std::endl;
@@ -243,7 +245,7 @@ int main(){
 
   //test operator+ from a string and a char
   std::cout<<"Début test operator+(char c)"<<std::endl;
-  string str4;
+  string str4(hello);
   std::cout<<"Appel du constructeur par défaut pour créer une string str3"<<std::endl;
   std::cout<<"Affichage de l'objet string str3 initialisé : "<<std::endl;
   str4.display();
@@ -260,7 +262,7 @@ int main(){
 
   ////test operator+ from to strings
   std::cout<<"Début test operator+(const string& str)"<<std::endl;
-  string str6;
+  string str6(hello);
   std::cout<<"Affichage de l'objet string str6 initialisé : "<<std::endl;
   str6.display();
   std::cout<<"Taille : "<<str6.size()<<std::endl;

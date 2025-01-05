@@ -10,6 +10,8 @@ Student C : Camille RIMAUD
 #include <cstddef>//used only to be able to use the type size_t
 
 // CONSTRUCTORS AND DESTRUCTOR
+
+/*
 //initial default constructor : initialise a "Hello world" string
 string::string(){
   capacity_ = 20;
@@ -21,13 +23,13 @@ string::string(){
   }
   string_ptr_[size_] = '\0';
 }
+*/
 
 //destructor
 string::~string(){
   delete[] string_ptr_;
 }
 
-/**
 //final default constructor : initialise an empty string
 string::string(){
   capacity_ = 10;
@@ -35,7 +37,7 @@ string::string(){
   string_ptr_ = new char [capacity_];
   string_ptr_[size_] = '\0';
 }
-**/
+
 
 //copy constructor
 string::string(const string &str){
@@ -85,12 +87,6 @@ size_t string::capacity(){
    return capacity_;
 }
 
-/*
-// string_ptr accessor
-char* string::string_ptr(){
-  return string_ptr_;
-}
-*/
 
 // MEMBER FUNCTIONS
 // We added a "display" function to the class in order to check the results and be able to print strings produced by constructors and modified by function members
