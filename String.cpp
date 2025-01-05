@@ -210,15 +210,15 @@ void string::operator=(const char* s){
 
 // operator+ from a c-string : concatenation of a c-string to the string
 // operator+(const string&, const char*)
-void string::operator_concat(const char* ptr) {
-  this->size_ = this->size_+1;
-  if (size_<this->max_size_){
-    this->capacity_ = this->size_;
-    string_ptr_[size_-1]=*ptr;
-  }
-  else
-  {
-  std::cout<<"La taille de la chaine de caractére dépasse la taille limite imposée"<<std::endl;
+void string::operator_concat(const char* s) {
+  size_t len_s = 0;
+  while (s[len_s]!='\0'){len_s++;}; // determine the length of cstring
+  size_t old_size_ = size_;
+  size_t new_size_ = size_ + len_s;
+  char c ='i';
+  this->resize(new_size_, c);
+  for (size_t i=0; i < len_s; i++){
+    string_ptr_[i+old_size_]=s[i];
   }
 }
 

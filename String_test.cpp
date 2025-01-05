@@ -136,7 +136,7 @@ int main(){
   std::cout<<"La fonction s'effectue sur la partie entière de la taille donnée en paramètre."<<std::endl;
   std::cout<<"Fin test fonction resize"<<std::endl;
   std::cout<<std::endl;
-  /*
+
   //test clear fonction
   std::cout<<"Début test fonction clear"<<std::endl;
   string str_clear;
@@ -147,13 +147,14 @@ int main(){
   std::cout<<"Taille : "<<str_clear.size()<<std::endl;
   std::cout<<"Fin test clear"<<std::endl;
   std::cout<<std::endl;
-  */
+
 
   //test empty function
   string str_empty_test;
   std::cout<<"Début test empty"<<std::endl;
   std::cout<<"Taille str_empty_test : "<<str_empty_test.length()<<std::endl;
   std::cout<<"str_empty_test empty ? : "<<str_empty_test.empty()<<std::endl;
+  std::cout<<"Application de la fonction clear"<<std::endl;
   str_empty_test.clear();
   std::cout<<"Taille str_empty_test : "<<str_empty_test.length()<<std::endl;
   std::cout<<"str_empty_test empty ? : "<<str_empty_test.empty()<<std::endl;
@@ -200,7 +201,7 @@ int main(){
   std::cout<<"Affichage de l'objet string str3 (valeur remplacée par celle de str2) : "<<std::endl;
   str3.display();
   std::cout<<std::endl;
-  std::cout<<"Test supplémentaire : passer un objet différent d'une string (par exemple : un entier, un caractère...)";
+  std::cout<<"Test supplémentaire : passer un objet différent d'une string (par exemple : un entier, un caractère...)"<<std::endl;
   str3.operator=(3);
   str3.display();
   std::cout<<"La fonction ne tourne pas dans ce cas (paramètre ne répondant pas aux spécifications)"<<std::endl;
@@ -214,13 +215,11 @@ int main(){
   str5.display();
   std::cout<<"Affichage de l'objet string str_bis initial: "<<std::endl;
   str_bis.display();
-  std::cout<<"Création du pointeur vers str_bis: "<<std::endl;
+  std::cout<<"Création d'une c_string s à partir de str_bis: "<<std::endl;
   const char* s = str_bis.c_str();
-  std::cout<<"*s : ";
-  std::cout<<*s<<std::endl;
   std::cout<<"s : ";
   std::cout<<s<<std::endl;
-  std::cout<<"Application de l'opérateur qui remplace le contenu de str5 par celui du pointeur de str_bis "<<std::endl;
+  std::cout<<"Application de l'opérateur qui remplace le contenu de str5 par le c-string s "<<std::endl;
   str5.operator=(s);
   std::cout<<"Affichage de l'objet string str5 modifié : "<<std::endl;
   str5.display();
@@ -231,11 +230,11 @@ int main(){
 
   //test operator+(const string&, const char*) fonction
   std::cout<<"Début test fonction operator+(const string&, const char*)"<<std::endl;
-  const char p = 'p';
-  const char* p_ptr = &p;
   string str_ope_concat;
-  std::cout<<"Ajout du caractère p à la fin du string : "<<str_ope_concat.string_ptr_<<" de la taille : "<<str_ope_concat.size()<<std::endl;
-  str_ope_concat.operator_concat(p_ptr);
+  std::cout<<"Affichage de l'objet string str_ope_concat initialisé : "<<std::endl;
+  str_ope_concat.display();
+  std::cout<<"Ajout du c-string s créé précédemment"<<std::endl;
+  str_ope_concat.operator_concat(s);
   std::cout<<"Résultat aprés application de la fonction : "<<str_ope_concat.string_ptr_<<std::endl;
   std::cout<<"Size de la chaine de caractéres : "<<str_ope_concat.size()<<std::endl;
   std::cout<<"Fin test operator+(const string&, const char*)"<<std::endl;
@@ -252,7 +251,7 @@ int main(){
   std::cout<<"Application de l'opérateur qui concatène le caractère 'g' à str4 "<<std::endl;
   std::cout<<"Affichage de l'objet string str4 modifié par concaténation : "<<std::endl;
   str4.display();
-  std::cout<<"Test supplémentaire : passer un objet différent d'une string (par exemple : un entier, un caractère...)";
+  std::cout<<"Test supplémentaire : passer un objet différent d'une string (par exemple : un entier, un caractère...)"<<std::endl;
   str4.operator+(3);
   str4.display();
   std::cout<<"La fonction ne tourne pas dans ce cas (paramètre ne répondant pas aux spécifications)"<<std::endl;
