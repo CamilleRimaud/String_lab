@@ -5,7 +5,7 @@ Student B : Albane WEBER
 Student C : Camille RIMAUD
 **/
 
-#include "String.h"
+#include "string.h"
 #include <iostream> //used only for displaying messages and results
 #include <cstddef>//used only to be able to use the type size_t
 
