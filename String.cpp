@@ -210,7 +210,7 @@ void string::operator=(const char* s){
 
 // operator+ from a c-string : concatenation of a c-string to the string
 // operator+(const string&, const char*)
-void string::operator_concat(const char* s) {
+void string::operator+(const char* s) {
   size_t len_s = 0;
   while (s[len_s]!='\0'){len_s++;}; // determine the length of cstring
   size_t old_size_ = size_;

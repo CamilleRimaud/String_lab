@@ -234,7 +234,7 @@ int main(){
   std::cout<<"Affichage de l'objet string str_ope_concat initialisé : "<<std::endl;
   str_ope_concat.display();
   std::cout<<"Ajout du c-string s créé précédemment"<<std::endl;
-  str_ope_concat.operator_concat(s);
+  str_ope_concat.operator+(s);
   std::cout<<"Résultat aprés application de la fonction : "<<str_ope_concat.string_ptr_<<std::endl;
   std::cout<<"Size de la chaine de caractéres : "<<str_ope_concat.size()<<std::endl;
   std::cout<<"Fin test operator+(const string&, const char*)"<<std::endl;

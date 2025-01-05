@@ -32,7 +32,7 @@ class string{
     void operator=(const char* s);
 
 
-    void operator_concat(const char* ptr);
+    void operator+(const char* ptr);
     void operator+(char c);
     void operator+(const string& str);
 
